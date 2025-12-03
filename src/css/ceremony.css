@@ -1,0 +1,336 @@
+/* ============================================================= */
+/* ceremony.css — VERSÃO FINAL OFICIAL (30/11/2025)             */
+/* Bloco de texto coladinho + TODO o respiro após o pino        */
+/* BG2 + festa.png mantidos e bem afastados                    */
+/* ============================================================= */
+
+.ceremony-section {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    min-height: 150vh;
+    /* ainda mais altura */
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:
+        url('../assets/images/festa.png') center bottom 0px / 112% auto no-repeat,
+        url('../assets/images/manchas.png') center top 0px / 112% auto no-repeat,
+        url('../assets/images/BG3.webp') center center / cover no-repeat;
+    background-blend-mode: multiply;
+    padding: 5px 20px 300px;
+    /* todo o espaço embaixo */
+    /* 
+     * Ajustando para que a distância entre firstDisplay e ceremony-section
+     * seja a mesma que entre hero-section e firstDisplay
+     * hero-section tem altura fixa de 820px, folding-countdown-container tem padding-top: 120px
+     * Para manter a mesma distância: margin-top = -(820px - 120px - 240px + 20px)
+     */
+    margin-top: calc(-820px + 120px + 240px - 20px);
+    transition: margin-top 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 5;
+}
+
+/* Quando o card está aberto, a cerimônia volta ao lugar normal */
+.folding-countdown-container.active+.ceremony-section {
+    margin-top: 0;
+}
+
+.ceremony-section .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 5px;
+    text-align: center;
+    gap: 0;
+    /* remove qualquer espaçamento automático */
+}
+
+/* Título + textos coladinhos — ZERO margin-bottom */
+.cerimony-title-image {
+    margin-bottom: 5px;
+}
+
+.cerimony-title-img {
+    width: 88%;
+    max-width: 410px;
+    height: auto;
+    margin-top: 50px;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.25));
+    margin-bottom: 20px;
+    /* espaçamento reduzido para 5px */
+}
+
+.location-text {
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 1.4rem;
+    color: #4a2b1d;
+    letter-spacing: 2.6px;
+    margin: 0 0 5px 0;
+    /* espaçamento reduzido para 5px */
+    line-height: 1.2;
+}
+
+.location-address {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.8;
+    margin: 0 0 5px 0;
+    /* espaçamento reduzido para 5px */
+}
+
+.map-hint {
+    font-size: 0.95rem;
+    color: #A15C2C;
+    margin: 5px 0 5px 0;
+    /* espaçamento reduzido para 5px */
+    font-style: italic;
+    animation: pulse 2s infinite;
+    pointer-events: none;
+    /* não clicável em desktop */
+    cursor: default;
+    display: block;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.map-pin-container {
+    width: 450px;
+    margin: 5px 0 70px 0;
+    /* espaçamento reduzido para 5px */
+    background-blend-mode: multiply;
+    /* animation: float 4.5s infinite ease-in-out; */
+    pointer-events: auto;
+    /* clicável */
+    cursor: pointer;
+    display: block !important;
+}
+
+.map-pin-container img {
+    width: 100%;
+}
+
+/*
+.map-pin-container:hover img {
+    transform: translateY(-16px) scale(1.25);
+} */
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .location-text,
+    .location-address {
+        margin-bottom: 40px !important;
+        /* Força um respiro generoso */
+    }
+
+    .location-address {
+        margin-bottom: 80px !important;
+    }
+
+    .ceremony-section {
+        padding-bottom: 420px !important;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    /* Desativa completamente o botão grande em mobile */
+    .map-pin-container {
+        pointer-events: none !important;
+        /* não responde a clique */
+        cursor: default !important;
+        opacity: 0.92;
+        /* deixa sutilmente mais suave (opcional) */
+        display: none !important;
+    }
+
+    /* Transforma o texto em link clicável abaixo do endereço */
+    .map-hint {
+        display: block !important;
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        background: rgba(255, 255, 255, 0.92);
+        color: #A15C2C !important;
+        font-family: 'GriffoClassicoSmallCaps', serif !important;
+        font-size: 1.1rem !important;
+        font-weight: 600;
+        font-style: normal;
+        padding: 16px 30px !important;
+        margin: 30px auto 20px !important;
+        border-radius: 50px;
+        width: fit-content;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(161, 92, 44, 0.3);
+        transition: all 0.35s ease;
+        text-align: center;
+        letter-spacing: 1.5px;
+    }
+
+    .map-hint:hover,
+    .map-hint:active {
+        background: #A15C2C !important;
+        color: white !important;
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(161, 92, 44, 0.4);
+    }
+
+    .location-address {
+        margin-bottom: 20px !important;
+    }
+
+    .ceremony-section {
+        padding-bottom: 500px !important;
+        min-height: 115vh !important;
+    }
+}
+
+/* ============================================================= */
+/* RESPONSIVO                                                          */
+/* ============================================================= */
+@media (max-width: 480px) {
+    .ceremony-section {
+        padding: 5px 15px 100px;
+        background:
+            url('../assets/images/festa.png') center bottom 20px / 100% auto no-repeat,
+            url('../assets/images/manchas.png') center top 0px / 100% auto no-repeat,
+            url('../assets/images/BG3.webp') center center / cover no-repeat;
+        background-blend-mode: multiply;
+        padding-top: 30px !important;
+        margin-top: calc(-720px + 60px + 240px - 40px);
+        padding-bottom: 480px !important;
+        min-height: 110vh;
+    }
+
+    .folding-countdown-container.active+.ceremony-section {
+        margin-top: 0;
+    }
+
+
+    .ceremony-section .content-wrapper {
+        padding-top: 5px;
+        /* padding-top reduzido para 5px */
+    }
+
+    .cerimony-title-img {
+        max-width: 370px;
+        margin-bottom: 5px;
+        /* espaçamento reduzido para 5px */
+    }
+
+    .location-text,
+    .location-address {
+        margin-bottom: 50px !important;
+    }
+
+    .location-address {
+        margin-bottom: 20px !important;
+        padding: 0 0 20px;
+        font-size: 1rem;
+    }
+
+    .map-pin-container {
+        width: 200px;
+        margin: 5px 0 70px 0;
+        /* espaçamento reduzido para 5px */
+    }
+
+    .map-hint {
+        font-size: 1.15rem !important;
+        padding: 18px 35px !important;
+        letter-spacing: 1.8px !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .ceremony-section {
+        margin-top: calc(-680px + 40px + 240px - 40px);
+    }
+
+    .cerimony-title-img {
+        max-width: 330px;
+    }
+
+    .location-text {
+        font-size: 1.08rem;
+    }
+}
+
+/* ============================================================= */
+/* BOTÃO MAPS - ESTILO IGUAL AO INSTAGRAM DA HOSPEDAGEM        */
+/* ============================================================= */
+
+.map-button {
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 1rem;
+    color: #A15C2C;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 12px 20px;
+    border: 1px solid rgba(161, 92, 44, 0.3);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: transparent;
+    margin: 5px 0 70px 0;
+}
+
+.map-button:hover {
+    background: #A15C2C;
+    color: white;
+    border-color: #A15C2C;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .map-button {
+        font-size: 1.1rem !important;
+        padding: 16px 30px !important;
+        margin: 30px auto 20px !important;
+        border-radius: 50px;
+        width: fit-content;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(161, 92, 44, 0.3);
+        transition: all 0.35s ease;
+        text-align: center;
+        letter-spacing: 1.5px;
+        display: block;
+    }
+
+    .map-button:hover,
+    .map-button:active {
+        background: #A15C2C !important;
+        color: white !important;
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(161, 92, 44, 0.4);
+    }
+}

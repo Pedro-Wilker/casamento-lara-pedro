@@ -1,0 +1,16 @@
+{
+  "name": "casamento-lara-pedro",
+  "version": "1.0.0",
+  "description": "Convite de casamento digital",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server --baseDir=\"src\"",
+    "dev": "lite-server --baseDir=\"src\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

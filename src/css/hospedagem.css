@@ -1,0 +1,260 @@
+@font-face {
+    font-family: 'Le Jour';
+    src: url('../assets/fonts/LeJour.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.hospedagem-section {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 10px 20px 20px;
+    background: url('../assets/images/BG2.webp') center center / cover no-repeat fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.hospedagem-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(245, 240, 235, 0.4) 0%,
+            rgba(245, 240, 235, 0.7) 50%,
+            rgba(245, 240, 235, 0.9) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hospedagem-section .content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.hospedagem-title {
+    margin-bottom: 30px;
+}
+
+.hospedagem-title img {
+    width: 90%;
+    max-width: 380px;
+    height: auto;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+}
+
+.div-hospedagem {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    z-index: 10;
+}
+
+.div-hospedagem img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.carousel {
+    position: relative;
+    z-index: 1;
+    height: 520px;
+    overflow: visible;
+    width: 100%;
+    max-width: 400px;
+}
+
+.carousel-item {
+    --items: 3;
+    --width: clamp(250px, 76vw, 360px);
+    --height: clamp(380px, 110vw, 500px);
+    --x: calc(var(--active) * 165%);
+    --y: calc(var(--active) * 32%);
+    --rot: calc(var(--active) * 36deg);
+    --opacity: calc(var(--zIndex) / var(--items) * 3 - 2);
+
+    overflow: hidden;
+    position: absolute;
+    z-index: var(--zIndex);
+    width: var(--width);
+    height: var(--height);
+    margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+    border-radius: 16px;
+    top: 50%;
+    left: 50%;
+    user-select: none;
+    transform-origin: 0% 100%;
+    box-shadow: 0 10px 50px 10px rgba(0, 0, 0, 0.3);
+    background: #fff;
+    cursor: pointer;
+    transform: translate(var(--x), var(--y)) rotate(var(--rot));
+    transition: transform 0.8s cubic-bezier(0.02, 0, 0, 1);
+}
+
+.carousel-box {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+}
+
+.carousel-box::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4));
+    border-radius: 16px;
+    opacity: var(--opacity);
+    transition: opacity 0.8s cubic-bezier(0.02, 0, 0, 1);
+    pointer-events: none;
+}
+
+.carousel-video-container {
+    position: relative;
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+    border-radius: 16px 16px 0 0;
+}
+
+.carousel-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-content {
+    position: relative;
+    z-index: 2;
+    padding: 15px 20px;
+    text-align: center;
+    background: linear-gradient(to bottom, #fff 0%, #fdfbf7 100%);
+    border-radius: 0 0 16px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.carousel-hotel-name {
+    font-family: 'Le Jour', 'Great Vibes', cursive;
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+    color: #4A2B1D;
+    margin: 0;
+    letter-spacing: 1px;
+    transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.carousel-num {
+    position: absolute;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.9);
+    top: 10px;
+    left: 15px;
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.8s cubic-bezier(0, 0.02, 0, 1);
+}
+
+.carousel-instagram {
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 0.75rem;
+    color: #A15C2C;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid rgba(161, 92, 44, 0.3);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.carousel-instagram:hover {
+    background: #A15C2C;
+    color: white;
+    border-color: #A15C2C;
+}
+
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(161, 92, 44, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: #A15C2C;
+    transform: scale(1.2);
+}
+
+.carousel-dot:hover {
+    background: rgba(161, 92, 44, 0.6);
+}
+
+@media (max-width: 480px) {
+    .hospedagem-section {
+        padding: 10px 15px 20px;
+    }
+
+    .carousel {
+        height: 500px;
+    }
+
+    .carousel-item {
+        --width: clamp(230px, 74vw, 340px);
+        --height: clamp(360px, 105vw, 480px);
+        --x: calc(var(--active) * 160%);
+        --y: calc(var(--active) * 30%);
+        --rot: calc(var(--active) * 35deg);
+    }
+}
+
+@media (max-width: 360px) {
+    .carousel {
+        height: 480px;
+    }
+
+    .carousel-item {
+        --width: clamp(220px, 72vw, 320px);
+        --height: clamp(340px, 100vw, 460px);
+        --x: calc(var(--active) * 155%);
+        --y: calc(var(--active) * 28%);
+        --rot: calc(var(--active) * 34deg);
+    }
+}

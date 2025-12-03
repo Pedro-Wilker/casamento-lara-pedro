@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contagem Regressiva - Folding Effect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="cardContainer" id="card">
+    <div class="firstDisplay">
+      <div class="wedding-header">
+        <div class="date-image-container">
+          <img src="image-removebg-preview.png" alt="23 janeiro" class="date-image" onerror="this.style.display='none'">
+        </div>
+        <h2 class="wedding-location">JACOBINA, BAHIA</h2>
+        <div class="tap-hint" id="tapHint">↓ Clique para ver a contagem</div>
+      </div>
+    </div>
+
+    <div class="first">
+      <div class="firstTop"></div>
+      <div class="firstBehind">
+        <div class="firstBehindDisplay">
+          <h3 class="countdown-title">CONTAGEM REGRESSIVA</h3>
+        </div>
+
+        <div class="second">
+          <div class="secondTop"></div>
+          <div class="secondBehind">
+            <div class="secondBehindDisplay">
+              <div class="countdown-subtitle">Faltam apenas...</div>
+            </div>
+
+            <div class="third">
+              <div class="thirdTop"></div>
+              <div class="thirdBehind">
+                <div class="flipClock" id="flipClock">
+                  <div class="flipUnit">
+                    <div class="flipUnitContainer" data-unit="days">
+                      <div class="upperCard"><span>00</span></div>
+                      <div class="lowerCard"><span>00</span></div>
+                      <div class="flipCard top"><span>00</span></div>
+                      <div class="flipCard bottom"><span>00</span></div>
+                    </div>
+                    <span class="unitLabel">Dias</span>
+                  </div>
+
+                  <div class="flipUnit">
+                    <div class="flipUnitContainer" data-unit="hours">
+                      <div class="upperCard"><span>00</span></div>
+                      <div class="lowerCard"><span>00</span></div>
+                      <div class="flipCard top"><span>00</span></div>
+                      <div class="flipCard bottom"><span>00</span></div>
+                    </div>
+                    <span class="unitLabel">Horas</span>
+                  </div>
+
+                  <div class="flipUnit">
+                    <div class="flipUnitContainer" data-unit="minutes">
+                      <div class="upperCard"><span>00</span></div>
+                      <div class="lowerCard"><span>00</span></div>
+                      <div class="flipCard top"><span>00</span></div>
+                      <div class="flipCard bottom"><span>00</span></div>
+                    </div>
+                    <span class="unitLabel">Minutos</span>
+                  </div>
+
+                  <div class="flipUnit">
+                    <div class="flipUnitContainer" data-unit="seconds">
+                      <div class="upperCard"><span>00</span></div>
+                      <div class="lowerCard"><span>00</span></div>
+                      <div class="flipCard top"><span>00</span></div>
+                      <div class="flipCard bottom"><span>00</span></div>
+                    </div>
+                    <span class="unitLabel">Segundos</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

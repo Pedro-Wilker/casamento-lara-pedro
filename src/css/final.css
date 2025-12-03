@@ -1,0 +1,229 @@
+:root {
+    --final-section-max-width: 420px;
+    --final-section-padding-x: 24px;
+}
+
+.final-section {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 28px 0 0;
+    background: url('../assets/images/BG2.webp') center center / cover no-repeat fixed;
+    text-align: center;
+    overflow: hidden;
+    color: #4A2B1D;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    isolation: isolate;
+    flex-shrink: 0;
+}
+
+.final-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(245, 240, 235, 0.92) 0%,
+        rgba(245, 240, 235, 0.96) 40%,
+        rgba(245, 240, 235, 1) 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.final-section__content {
+    position: relative;
+    z-index: 3;
+    width: min(100%, var(--final-section-max-width));
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+    font-family: 'EB Garamond', Georgia, serif;
+    padding: 0 var(--final-section-padding-x);
+}
+
+.final-section__line {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #4A2B1D;
+}
+
+.final-section__line--highlight {
+    font-family: 'GriffoClassicoSmallCaps', 'EB Garamond', serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.18em;
+    color: #A15C2C;
+    text-transform: uppercase;
+}
+
+.final-section__line--muted {
+    color: #8b7355;
+    font-size: 1.15rem;
+}
+
+.final-section__line strong {
+    font-family: 'GriffoClassicoSmallCaps', 'EB Garamond', serif;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    color: #A15C2C;
+    text-transform: uppercase;
+}
+
+.final-section__canvas-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 960px;
+    margin: 12px auto 0;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    background: transparent;
+    line-height: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.final-section__canvas-wrapper--ready {
+    margin-top: 12px;
+}
+
+.flowers-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: clamp(280px, 60vw, 440px);
+    border-radius: 0;
+    overflow: hidden;
+    background: transparent;
+    box-shadow: none;
+    display: block;
+    line-height: 0;
+}
+
+.flowers-container--active {
+    box-shadow: none;
+}
+
+#finalFlowersCanvas,
+.flowers-container canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    vertical-align: bottom;
+    line-height: 0;
+}
+
+.flowers-container .name {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 1.05rem;
+    color: #4A2B1D;
+    text-shadow: 0 0 12px rgba(245, 240, 235, 0.9);
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.flowers-container .name span {
+    background-color: rgba(255, 255, 255, 0.72);
+    padding: 10px 18px;
+    border-radius: 999px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.flowers-container--active .name {
+    opacity: 0;
+}
+
+.flowers-container .render-toggle {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .flowers-container {
+        height: clamp(320px, 45vw, 520px);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --final-section-max-width: 360px;
+        --final-section-padding-x: 18px;
+    }
+
+    .final-section {
+        padding: 24px 0 0;
+        background: url('../assets/images/BG2.webp') center top / cover no-repeat;
+    }
+
+    .final-section__content {
+        gap: 16px;
+    }
+
+    .final-section__line {
+        font-size: 1.08rem;
+    }
+
+    .final-section__line--highlight {
+        font-size: 1.18rem;
+        letter-spacing: 0.16em;
+    }
+
+    .final-section__canvas-wrapper {
+        margin: 18px auto 0;
+    }
+
+    .flowers-container {
+        height: clamp(260px, 68vw, 360px);
+    }
+
+    .flowers-container .name {
+        font-size: 0.94rem;
+    }
+}
+
+@media (max-width: 360px) {
+    :root {
+        --final-section-max-width: 320px;
+        --final-section-padding-x: 16px;
+    }
+
+    .final-section {
+        padding: 22px 0 0;
+    }
+
+    .final-section__line {
+        font-size: 1rem;
+        letter-spacing: 0.03em;
+    }
+
+    .final-section__line--highlight {
+        font-size: 1.08rem;
+        letter-spacing: 0.14em;
+    }
+
+    .final-section__canvas-wrapper {
+        margin: 16px auto 0;
+    }
+
+    .flowers-container {
+        height: clamp(240px, 72vw, 330px);
+    }
+
+    .flowers-container .name {
+        font-size: 0.88rem;
+    }
+}
