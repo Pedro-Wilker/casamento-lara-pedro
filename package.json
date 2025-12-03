@@ -4,11 +4,11 @@
   "description": "Convite de casamento digital",
   "main": "index.js",
   "scripts": {
-    "start": "lite-server --baseDir=\"src\"",
-    "dev": "lite-server --baseDir=\"src\""
+    "start": "lite-server",
+    "dev": "lite-server"
   },
   "keywords": [],
-  "author": "",
+  "author": "Lara & Pedro",
   "license": "ISC",
   "devDependencies": {
     "lite-server": "^2.6.1"

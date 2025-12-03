@@ -1,20 +1,15 @@
 {
+  "version": 2,
   "builds": [
     {
-      "src": "src/**/*.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "src/assets/**/*",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "src/css/**/*",
+      "src": "*.html",
       "use": "@vercel/static"
     }
   ],
-  "outputDirectory": "src",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
   ]
 }
