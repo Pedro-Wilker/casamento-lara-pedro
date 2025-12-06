@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lara & Pedro • 23 Janeiro 2026</title>
+
+    <style>
+        @font-face {
+            font-family: 'GriffoClassicoSmallCaps';
+            src: url('./assets/fonts/GriffoClassicoSmallCaps.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/countdown.css">
+    <link rel="stylesheet" href="./css/ceremony.css">
+    <link rel="stylesheet" href="./css/warnings.css">
+    <link rel="stylesheet" href="./css/hospedagem.css">
+    <link rel="stylesheet" href="./css/confirmation.css">
+    <link rel="stylesheet" href="./css/gifts.css">
+    <link rel="stylesheet" href="./css/final.css">
+    <link rel="stylesheet" href="./css/presentes-supabase.css">
+</head>
+
+<body>
+    <div class="envelope-container" id="envelope">
+        <div class="envelope-wrapper">
+            <div class="fold-left"></div>
+            <div class="fold-right"></div>
+            <div class="selo-container" id="seloBtn">
+                <img src="./assets/images/selo.png" alt="Selo L&P" class="selo">
+                <span class="clique-texto">Clique para abrir!</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="convite-content" id="conviteContent">
+        <section class="hero-section">
+            <div class="div-hero">
+                <img src="./assets/images/DIVHERO.png" alt="Divisória Hero">
+            </div>
+            <div class="flores-arco">
+                <img src="./assets/images/FLORES.png" alt="Arco de flores">
+            </div>
+            <div class="content-wrapper">
+                <div class="monograma">
+                    <img src="./assets/images/Monograma.png" alt="Monograma L&P">
+                </div>
+                <div class="nomes">
+                    <img src="./assets/images/nomes.png" alt="Lara Veloso e Pedro Wilker">
+                </div>
+                <div class="texto-convite">
+                    <p>Você está convidado para a nossa</p>
+                    <h2>CERIMÔNIA DE CASAMENTO</h2>
+                </div>
+            </div>
+        </section>
+
+        <section class="folding-countdown-container">
+            <div class="div-contagem">
+                <img src="./assets/images/DIVCONTAGEM.png" alt="Divisória Contagem">
+            </div>
+            <div class="cardContainer" id="card">
+                <div class="firstDisplay">
+                    <div class="wedding-header">
+                        <div class="date-image-container">
+                            <img src="./assets/images/image-removebg-preview.png" alt="23 janeiro 2026"
+                                class="date-image">
+                        </div>
+                        <div class="wedding-details">
+                            <p class="wedding-day">sexta feira, 16 horas</p>
+                        </div>
+                        <h2 class="wedding-location">JACOBINA, BAHIA</h2>
+                        <div class="tap-hint" id="tapHint">Clique para ver a contagem</div>
+                    </div>
+                </div>
+
+                <div class="first">
+                    <div class="firstTop"></div>
+                    <div class="firstBehind">
+                        <div class="firstBehindDisplay">
+                            <h3 class="countdown-title">CONTAGEM REGRESSIVA</h3>
+                        </div>
+
+                        <div class="second">
+                            <div class="secondTop"></div>
+                            <div class="secondBehind">
+                                <div class="secondBehindDisplay">
+                                    <div class="countdown-subtitle">Faltam apenas...</div>
+                                </div>
+
+                                <div class="third">
+                                    <div class="thirdTop"></div>
+                                    <div class="thirdBehind">
+                                        <div class="flipClock" id="flipClock">
+                                            <div class="flipUnit">
+                                                <div class="flipUnitContainer" data-unit="days">
+                                                    <div class="upperCard"><span>00</span></div>
+                                                    <div class="lowerCard"><span>00</span></div>
+                                                    <div class="flipCardTop"><span>00</span></div>
+                                                    <div class="flipCardBottom"><span>00</span></div>
+                                                </div>
+                                                <span class="unitLabel">Dias</span>
+                                            </div>
+
+                                            <div class="flipUnit">
+                                                <div class="flipUnitContainer" data-unit="hours">
+                                                    <div class="upperCard"><span>00</span></div>
+                                                    <div class="lowerCard"><span>00</span></div>
+                                                    <div class="flipCardTop"><span>00</span></div>
+                                                    <div class="flipCardBottom"><span>00</span></div>
+                                                </div>
+                                                <span class="unitLabel">Horas</span>
+                                            </div>
+
+                                            <div class="flipUnit">
+                                                <div class="flipUnitContainer" data-unit="minutes">
+                                                    <div class="upperCard"><span>00</span></div>
+                                                    <div class="lowerCard"><span>00</span></div>
+                                                    <div class="flipCardTop"><span>00</span></div>
+                                                    <div class="flipCardBottom"><span>00</span></div>
+                                                </div>
+                                                <span class="unitLabel">Minutos</span>
+                                            </div>
+
+                                            <div class="flipUnit">
+                                                <div class="flipUnitContainer" data-unit="seconds">
+                                                    <div class="upperCard"><span>00</span></div>
+                                                    <div class="lowerCard"><span>00</span></div>
+                                                    <div class="flipCardTop"><span>00</span></div>
+                                                    <div class="flipCardBottom"><span>00</span></div>
+                                                </div>
+                                                <span class="unitLabel">Segundos</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-direita-contagem">
+                <img src="./assets/images/div-direita-contagem.png" alt="Divisória Direita Contagem">
+            </div>
+        </section>
+
+        <section class="ceremony-section">
+            <div class="content-wrapper">
+                <div class="cerimony-title-image">
+                    <img src="./assets/images/cerimonia-texto.png" alt="Cerimônia" class="cerimony-title-img">
+                </div>
+
+                <a href="https://www.google.com/maps/place/arena+regis+brindes+jacobina/data=!4m2!3m1!1s0x76cf568f6309059:0x3a0447cfddfaa62f?sa=X&ved=1t:242&ictx=111"
+                    target="_blank" class="map-button">
+                    Clique para abrir no Maps
+                </a>
+
+                <a href="https://www.google.com/maps/place/arena+regis+brindes+jacobina/data=!4m2!3m1!1s0x76cf568f6309059:0x3a0447cfddfaa62f?sa=X&ved=1t:242&ictx=111"
+                    target="_blank" class="map-pin-container">
+                    <img src="./assets/images/localizacao.png" alt="Pino de Mapa">
+                </a>
+
+                <p class="location-text">Espaço Gourmet Arena Regis Brindes</p>
+                <p class="location-address">Rua Margem da Lagoa Antonio Teixeira Sobrinho, 5003, Jacobina - BA.</p>
+            </div>
+        </section>
+
+        <section class="warnings-section">
+            <div class="content-wrapper">
+                <h1 class="warnings-title">
+                    <img src="./assets/images/avisos.png" alt="Avisos Importantes" class="title-image">
+                </h1>
+
+                <ul class="warnings-list">
+                    <li><span class="heart-icon">♡</span>
+                        <p>Confirmação de presença <strong>obrigatória</strong> até o dia 20 de dezembro.</p>
+                    </li>
+                    <li><span class="heart-icon">♡</span>
+                        <p>Traje: <strong>Esporte Fino</strong></p>
+                    </li>
+                    <li><span class="heart-icon">♡</span>
+                        <p>Evite roupas na paleta <strong>rosa</strong> — cor das madrinhas</p>
+                    </li>
+                    <li><span class="heart-icon">♡</span>
+                        <p>Pedimos que cheguem com <strong>30 minutos de antecedência</strong></p>
+                    </li>
+                    <li><span class="heart-icon">♡</span>
+                        <p>Crianças são muito bem-vindas! ♡</p>
+                    </li>
+                    <li><span class="heart-icon">♡</span>
+                        <p><strong>Somente pessoas na lista de convidados poderão entrar na festa </strong></p>
+                    </li>
+                </ul>
+
+                <div class="final-message">
+                    <p>Contamos com a presença de todos vocês no nosso </p>
+                    <p><strong>GRANDE DIA</strong></p>
+                </div>
+
+                <div class="signature">
+                    <p class="with-love">Com carinho,</p>
+                    <div class="names">
+                        <img src="./assets/images/nomes.png" alt="Lara & Pedro" class="signature-img">
+                    </div>
+                </div>
+
+                <div class="decorative-line"></div>
+            </div>
+
+            <div class="avisos-arco">
+                <img src="./assets/images/avisosarco.png" alt="Arco de Avisos">
+            </div>
+
+            <div class="div-inferior-avisos">
+                <img src="./assets/images/DIVINFERIORAVISOS.png" alt="Divisória Inferior Avisos">
+            </div>
+        </section>
+
+        <section class="hospedagem-section">
+            <div class="div-hospedagem">
+                <img src="./assets/images/divhospedagem.png" alt="Divisória Hospedagem">
+            </div>
+
+            <div class="content-wrapper">
+                <div class="hospedagem-title">
+                    <img src="./assets/images/dicashospedagem.png" alt="Dicas de Hospedagem">
+                </div>
+
+                <div class="carousel-wrapper">
+                    <div class="carousel">
+                        <div class="carousel-item" data-hotel="0">
+                            <div class="carousel-box">
+                                <div class="carousel-num">01</div>
+                                <div class="carousel-video-container">
+                                    <video id="video-vilababacu" class="carousel-video" loop muted playsinline>
+                                        <source src="./assets/media/vilababacu.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="carousel-content">
+                                    <img src="./assets/images/vila.png" alt="Vila Babaçu" class="carousel-hotel-name">
+                                    <span class="carousel-instagram" data-hotel="0">Ver no Instagram</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item" data-hotel="1">
+                            <div class="carousel-box">
+                                <div class="carousel-num">02</div>
+                                <div class="carousel-video-container">
+                                    <video id="video-fiesta" class="carousel-video" loop muted playsinline>
+                                        <source src="./assets/media/fiesta.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="carousel-content">
+                                    <img src="./assets/images/fiesta.png" alt="Fiesta" class="carousel-hotel-name">
+                                    <span class="carousel-instagram" data-hotel="1">Ver no Instagram</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item" data-hotel="2">
+                            <div class="carousel-box">
+                                <div class="carousel-num">03</div>
+                                <div class="carousel-video-container">
+                                    <video id="video-serradoouro" class="carousel-video" loop muted playsinline>
+                                        <source src="./assets/media/serradoouro.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="carousel-content">
+                                    <img src="./assets/images/serra.png" alt="Serra do Ouro"
+                                        class="carousel-hotel-name">
+                                    <span class="carousel-instagram" data-hotel="2">Ver no Instagram</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-nav">
+                    <button class="carousel-dot active" data-index="0" aria-label="Slide 1"></button>
+                    <button class="carousel-dot" data-index="1" aria-label="Slide 2"></button>
+                    <button class="carousel-dot" data-index="2" aria-label="Slide 3"></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="confirmation-section">
+            <div class="content-wrapper">
+                <h2 class="confirmation-title">
+                    <img src="./assets/images/presenca.png" alt="Confirme sua Presença" class="title-image">
+                </h2>
+
+                <form id="confirmationForm" class="confirmation-form">
+                    <p class="main-guest-label">Convidado Principal</p>
+
+                    <input type="text" name="main_name" placeholder="Seu nome completo" required>
+                    <input type="email" name="main_email" placeholder="Seu e-mail" required>
+                    <input type="tel" name="main_phone" placeholder="Seu telefone (opcional)">
+
+                    <div class="acompanhantes-container">
+                        <button type="button" id="addAcompanhante" class="btn-add">+ Adicionar acompanhante</button>
+                    </div>
+
+                    <div id="acompanhantesList"></div>
+
+                    <button type="submit" class="btn-confirm">
+                        Confirmar Presença
+                    </button>
+                </form>
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <p>Presença confirmada com sucesso!</p>
+                    <p>Em breve você receberá um carinho nosso no e-mail</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gifts-folding-container">
+            <div class="giftsCardContainer" id="giftsCard">
+                <div class="firstDisplay">
+                    <div>
+                        <div class="gift-icon">Presentes</div>
+                        <p class="gift-message">
+                            Sua presença é o nosso <strong>maior presente</strong>.<br>
+                            Caso queira nos presentear, clique aqui para ver algumas sugestões
+                        </p>
+                        <div class="tap-hint" id="giftsTapHint">Clique para ver a lista</div>
+                    </div>
+                </div>
+
+                <div class="first">
+                    <div class="firstTop"></div>
+                    <div class="firstBehind">
+                        <div class="firstBehindDisplay">
+                            <h3 class="gifts-title">SUGESTÕES DE PRESENTES</h3>
+                        </div>
+
+                        <div class="second">
+                            <div class="secondTop"></div>
+                            <div class="secondBehind">
+                                <!-- Lista de presentes carregada dinamicamente -->
+                                <div class="gifts-list" id="giftsList"></div>
+
+                                <!-- Botão para ver lista completa -->
+                                <button class="ver-lista-btn" id="verListaCompleta">
+                                    Ver Lista Completa de Presentes
+                                </button>
+
+                                <div class="third">
+                                    <div class="thirdTop"></div>
+                                    <div class="thirdBehind">
+                                        <h3 class="pix-title">NOSSO PIX</h3>
+
+                                        <div class="qrcode-container">
+                                            <img src="./assets/images/qrcode.jpg" alt="QR Code PIX" class="qrcode-img">
+                                        </div>
+
+                                        <div class="pix-copy-area" id="pixCopyArea">
+                                            <span class="pix-email">coclarabytes@gmail.com</span>
+                                            <img src="./assets/images/copiar-e-colar.png" alt="Copiar PIX"
+                                                class="copy-icon-img">
+                                        </div>
+
+                                        <span class="copy-feedback" id="copyFeedback">Copiado!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-section">
+            <div class="final-section__content">
+                <p class="final-section__line final-section__line--highlight">Sim, por honra à nossa área, esse site foi
+                    desenvolvido por nós dois</p>
+                <p class="final-section__line final-section__line--muted">Se você chegou aqui, saiba que você é muito
+                    importante para nós</p>
+            </div>
+            <div class="final-section__canvas-wrapper"></div>
+        </section>
+    </div>
+
+    <!-- Scripts na ordem correta -->
+    <script src="./assets/js/env.js"></script>
+    <script src="./assets/js/envelope.js"></script>
+    <script src="./assets/js/countdown.js"></script>
+    <script src="./assets/js/hospedagem.js"></script>
+    <script src="./assets/js/gifts.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="./assets/js/confirmation.js"></script>
+    <script type="module" src="./assets/js/final-flowers.js"></script>
+    <script src="./assets/js/presentes-rest.js"></script>
+</body>
+
+</html>
