@@ -30,8 +30,7 @@
 }
 
 .giftsCardContainer.active {
-    height: 2180px;
-    /* aumentado para caber o PIX completo */
+    height: 1650px;
     box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
     margin-bottom: 0;
     transition: height 0.9s cubic-bezier(0.4, 0, 0.2, 1);
@@ -116,7 +115,7 @@
 }
 
 .giftsCardContainer .second {
-    height: 1280px;
+    height: 900px;
     bottom: -2px;
     top: auto;
 }
@@ -177,46 +176,52 @@
 }
 
 .giftsCardContainer .secondTop {
-    height: 1280px;
+    height: 900px;
     background: #f0f0f0;
     border: 1px solid #e8d4b8;
 }
 
 .giftsCardContainer .secondBehind {
-    height: 1280px;
+    height: 900px;
     background: #fff;
     transform: rotateX(-180deg);
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     justify-content: flex-start;
-    padding: 32px 26px 40px;
+    padding: 32px 26px 50px;
     box-shadow: 0px 11px 25px -1px rgba(0, 0, 0, 0.1);
     border: 1px solid #e8d4b8;
 }
 
 .giftsCardContainer .gifts-list {
     width: 100%;
+    max-width: 340px;
     display: grid;
     grid-template-columns: 1fr;
     gap: 14px;
+    margin-bottom: 30px;
 }
 
 .giftsCardContainer .gift-item {
     background: rgba(255, 255, 255, 0.85);
-    padding: 12px 18px;
+    padding: 14px 18px;
     border-radius: 8px;
     border-left: 3px solid #A15C2C;
     font-size: 1rem;
     color: #4a2b1d;
     line-height: 1.45;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
 }
 
 .giftsCardContainer .gift-item::before {
     content: "♡";
-    margin-right: 8px;
+    margin-right: 10px;
     color: #A15C2C;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .giftsCardContainer .thirdTop {
@@ -239,7 +244,6 @@
     text-align: center;
 }
 
-/* Título "NOSSO PIX" agora dentro do card e bonito */
 .giftsCardContainer .pix-title {
     font-family: 'GriffoClassicoSmallCaps', serif;
     font-size: 1.55rem;
@@ -249,7 +253,6 @@
     text-align: center;
 }
 
-/* QR Code só em desktop */
 .qrcode-container {
     margin: 20px auto 30px;
     text-align: center;
@@ -264,9 +267,6 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
 }
 
-
-
-/* Área clicável para copiar o PIX (com emoji de copiar) */
 .pix-copy-area {
     background: rgba(161, 92, 44, 0.12);
     padding: 18px 24px;
@@ -298,9 +298,6 @@
     font-weight: 500;
 }
 
-
-
-/* Feedback de copiado */
 #copyFeedback {
     position: absolute;
     top: -50px;
@@ -323,7 +320,6 @@
     opacity: 1;
 }
 
-/* Altura dinâmica quando aberto */
 .giftsCardContainer.active .third,
 .giftsCardContainer.active .thirdBehind {
     height: auto !important;
@@ -360,7 +356,6 @@
     transition-delay: 0.1s;
 }
 
-/* Ícone de cópia agora é uma imagem */
 .copy-icon-img {
     width: 28px;
     height: 28px;
@@ -370,26 +365,12 @@
     flex-shrink: 0;
 }
 
-/* Hover na área inteira (mantém o efeito bonitinho) */
 .pix-copy-area:hover .copy-icon-img {
     opacity: 1;
     transform: scale(1.12);
 }
 
-/* Caso queira deixar um pouco mais de espaço no mobile */
-@media (max-width: 480px) {
-    .copy-icon-img {
-        width: 26px;
-        height: 26px;
-    }
-
-    .pix-copy-area {
-        padding: 16px 20px;
-        gap: 10px;
-    }
-}
-
-/* Responsivo */
+/* RESPONSIVO */
 @media (max-width: 480px) {
     .gifts-folding-container {
         padding: 30px 15px 0;
@@ -401,7 +382,7 @@
     }
 
     .giftsCardContainer.active {
-        height: 2320px;
+        height: 1750px;
     }
 
     .giftsCardContainer .firstDisplay {
@@ -429,13 +410,13 @@
     }
 
     .giftsCardContainer .second {
-        height: 1400px;
+        height: 950px;
     }
 
     .giftsCardContainer .secondTop,
     .giftsCardContainer .secondBehind {
-        height: 1400px;
-        padding: 30px 22px 42px;
+        height: 950px !important;
+        padding: 30px 22px 60px;
     }
 
     .giftsCardContainer .gifts-list {
@@ -455,7 +436,6 @@
 
     .giftsCardContainer .thirdBehind {
         padding: 30px 24px 50px !important;
-        /* menos espaço em cima/baixo */
     }
 
     .giftsCardContainer .pix-title {
@@ -484,16 +464,13 @@
 
 @media (max-width: 360px) {
     .giftsCardContainer.active {
-        height: 2420px;
+        height: 1850px;
     }
 
-    .giftsCardContainer .second {
-        height: 1480px;
-    }
-
+    .giftsCardContainer .second,
     .giftsCardContainer .secondTop,
     .giftsCardContainer .secondBehind {
-        height: 1480px;
+        height: 1000px !important;
     }
 
     .giftsCardContainer .third,
@@ -506,4 +483,271 @@
         width: 140px !important;
         height: 140px !important;
     }
+}
+
+/* ===== SUAS ADIÇÕES ORIGINAIS + CORREÇÕES FINAIS ===== */
+
+/* Presentes clicáveis */
+.giftsCardContainer .gift-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.giftsCardContainer .gift-item:hover {
+    background: rgba(161, 92, 44, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.giftsCardContainer .gift-item.selected {
+    background: #A15C2C !important;
+    color: white !important;
+    border-left-color: #fff !important;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+.giftsCardContainer .gift-item.selected::before {
+    content: "Checkmark";
+    color: white;
+    font-weight: bold;
+}
+
+.giftsCardContainer .gift-item[data-ilimitado="true"]::before {
+    content: "✦";
+    color: #8B7355;
+}
+
+.giftsCardContainer .gift-item[data-ilimitado="true"].selected::before {
+    content: "Checkmark";
+    color: white;
+}
+
+/* BOTÃO VER LISTA COMPLETA — FORÇADO A FICAR ABAIXO */
+.ver-lista-btn {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 45px auto 30px;
+    padding: 16px 20px;
+    background: transparent;
+    border: 2px dashed #A15C2C;
+    color: #A15C2C;
+    border-radius: 12px;
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-align: center;
+    user-select: none;
+    pointer-events: auto !important;
+    z-index: 10;
+}
+
+.ver-lista-btn:hover {
+    background: #A15C2C;
+    color: white;
+    border-style: solid;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(161, 92, 44, 0.3);
+}
+
+/* MODAL — exatamente como você fez */
+.presentes-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+.presentes-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.presentes-modal-content {
+    background: #fff;
+    border-radius: 16px;
+    max-width: 560px;
+    width: 100%;
+    max-height: 85vh;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.presentes-modal.show .presentes-modal-content {
+    transform: scale(1);
+}
+
+.presentes-modal-header {
+    background: linear-gradient(135deg, #A15C2C, #8B4513);
+    color: #fff;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.presentes-modal-header h3 {
+    margin: 0;
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+.presentes-modal-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+}
+
+.presentes-modal-close:hover {
+    opacity: 1;
+}
+
+.presentes-modal-body {
+    padding: 30px 24px;
+    max-height: calc(85vh - 80px);
+    overflow-y: auto;
+}
+
+@media (max-width: 480px) {
+    .presentes-modal-content {
+        max-height: 92vh;
+        margin: 10px;
+    }
+
+    .presentes-modal-header {
+        padding: 16px 20px;
+    }
+
+    .presentes-modal-header h3 {
+        font-size: 1.15rem;
+    }
+
+    .presentes-modal-body {
+        padding: 20px;
+    }
+}
+
+.confirm-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.confirm-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.confirm-modal-content {
+    background: #fff;
+    border-radius: 16px;
+    max-width: 420px;
+    width: 90%;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.confirm-modal.show .confirm-modal-content {
+    transform: scale(1);
+}
+
+.confirm-modal h3 {
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 1.5rem;
+    color: #A15C2C;
+    margin: 0 0 15px 0;
+    letter-spacing: 1px;
+}
+
+.confirm-modal p {
+    font-size: 1.05rem;
+    color: #4a2b1d;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.confirm-item-name {
+    font-size: 1.2rem !important;
+    color: #A15C2C !important;
+    margin: 20px 0 !important;
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-yes,
+.btn-no {
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.btn-yes {
+    background: #A15C2C;
+    color: white;
+    border: 2px solid #A15C2C;
+}
+
+.btn-yes:hover {
+    background: #8B4513;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(161, 92, 44, 0.4);
+}
+
+.btn-no {
+    background: transparent;
+    color: #A15C2C;
+    border: 2px dashed #A15C2C;
+}
+
+.btn-no:hover {
+    background: rgba(161, 92, 44, 0.1);
+    transform: translateY(-2px);
 }

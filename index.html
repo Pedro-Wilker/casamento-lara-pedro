@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="./css/confirmation.css">
     <link rel="stylesheet" href="./css/gifts.css">
     <link rel="stylesheet" href="./css/final.css">
+    <link rel="stylesheet" href="./css/presentes-supabase.css">
 </head>
 
 <body>
@@ -343,26 +344,11 @@
                         <div class="second">
                             <div class="secondTop"></div>
                             <div class="secondBehind">
-                                <div class="gifts-list">
-                                    <div class="gift-item">Jogo de Panelas (Compatíveis com indução)</div>
-                                    <div class="gift-item">Batedeira</div>
-                                    <div class="gift-item">Cafeteira</div>
-                                    <div class="gift-item">Conjunto de taças</div>
-                                    <div class="gift-item">Faqueiro Inox</div>
-                                    <div class="gift-item">Jogo de cama (Tamanho King)</div>
-                                    <div class="gift-item">Frigobar</div>
-                                    <div class="gift-item">Cobertor/edredom de pluma sintética</div>
-                                    <div class="gift-item">Processador de alimentos</div>
-                                    <div class="gift-item">Aparelho de jantar</div>
-                                    <div class="gift-item">Conjunto de toalhas</div>
-                                    <div class="gift-item">Aspirador robô</div>
-                                    <div class="gift-item">Purificador de água</div>
-                                    <div class="gift-item">Lava e Seca</div>
-                                    <div class="gift-item">Kit Lavabo</div>
-                                    <div class="gift-item">Espremedor de frutas</div>
-                                    <div class="gift-item">Passadeira a vapor</div>
-                                    <div class="gift-item">Roupões de banho para o casal</div>
-                                    <div class="gift-item">Ar-condicionado portátil</div>
+                                <!-- Apenas 10 primeiros presentes -->
+                                <div class="gifts-list" id="giftsList"></div>
+
+                                <div class="ver-lista-btn" id="verListaCompleta">
+                                    Ver Lista Completa e reservar Presentes
                                 </div>
 
                                 <div class="third">
@@ -370,19 +356,16 @@
                                     <div class="thirdBehind">
                                         <h3 class="pix-title">NOSSO PIX</h3>
 
-                                        <!-- QR Code só em desktop -->
                                         <div class="qrcode-container">
                                             <img src="./assets/images/qrcode.jpg" alt="QR Code PIX" class="qrcode-img">
                                         </div>
 
-                                        <!-- E-mail clicável com emoji de copiar -->
                                         <div class="pix-copy-area" id="pixCopyArea">
                                             <span class="pix-email">coclarabytes@gmail.com</span>
                                             <img src="./assets/images/copiar-e-colar.png" alt="Copiar PIX"
                                                 class="copy-icon-img">
                                         </div>
 
-                                        <!-- Feedback flutuante -->
                                         <span class="copy-feedback" id="copyFeedback">Copiado!</span>
                                     </div>
                                 </div>
@@ -393,6 +376,32 @@
             </div>
         </section>
 
+        <!-- MODAL PARA LISTA COMPLETA -->
+        <div class="presentes-modal" id="presentesModal">
+            <div class="presentes-modal-content">
+                <div class="presentes-modal-header">
+                    <h3>Lista Completa de Presentes</h3>
+                    <button class="presentes-modal-close" id="modalClose">×</button>
+                </div>
+                <div class="presentes-modal-body">
+                    <div class="gifts-list" id="giftsListFull"></div>
+                    <p class="gift-empty" id="emptyMessage" style="display:none;">Todos os presentes foram escolhidos!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="confirm-modal" id="confirmModal">
+            <div class="confirm-modal-content">
+                <h3>Confirmar presente?</h3>
+                <p id="confirmMessage"></p>
+                <p class="confirm-item-name"><strong id="confirmItemName"></strong></p>
+                <div class="confirm-buttons">
+                    <button id="confirmYes" class="btn-yes">Sim, quero dar</button>
+                    <button id="confirmNo" class="btn-no">Não</button>
+                </div>
+            </div>
+        </div>
         <section class="final-section">
             <div class="final-section__content">
                 <p class="final-section__line final-section__line--highlight">Sim, por honra à nossa área, esse site foi
@@ -404,9 +413,12 @@
         </section>
     </div>
 
+    <!-- Scripts na ordem correta -->
+
     <script src="./assets/js/envelope.js"></script>
     <script src="./assets/js/countdown.js"></script>
     <script src="./assets/js/hospedagem.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./assets/js/gifts.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="./assets/js/confirmation.js"></script>
