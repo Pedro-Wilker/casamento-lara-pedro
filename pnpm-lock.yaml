@@ -7,12 +7,23 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@notionhq/client':
+        specifier: ^5.4.0
+        version: 5.4.0
+      dotenv:
+        specifier: ^17.2.3
+        version: 17.2.3
     devDependencies:
       lite-server:
         specifier: ^2.6.1
         version: 2.6.1
 
 packages:
+
+  '@notionhq/client@5.4.0':
+    resolution: {integrity: sha512-SJsprS26S0Wi9CoTQp4vC8/nPpAIo1gMB4H7aJ2E/k0fWnNGIEAg984KwtzK6h9ZGaPcEaryVRSz1VVClJcVUw==}
+    engines: {node: '>=18'}
 
   '@socket.io/component-emitter@3.1.2':
     resolution: {integrity: sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==}
@@ -177,6 +188,10 @@ packages:
     resolution: {integrity: sha512-LmVkry/oDShEgSZPNgqCIp2/TlqtExeGmymru3uCELnfyjY11IzpAproLYs+1X88fXO6DBoYP3ul2Xo2yz2j6A==}
     engines: {node: '>= 0.8.0'}
     hasBin: true
+
+  dotenv@17.2.3:
+    resolution: {integrity: sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==}
+    engines: {node: '>=12'}
 
   easy-extender@2.3.4:
     resolution: {integrity: sha512-8cAwm6md1YTiPpOvDULYJL4ZS6WfM5/cTeVVh4JsvyYZAoqlRVUpHL9Gr5Fy7HA6xcSZicUia3DeAgO3Us8E+Q==}
@@ -578,6 +593,8 @@ packages:
 
 snapshots:
 
+  '@notionhq/client@5.4.0': {}
+
   '@socket.io/component-emitter@3.1.2': {}
 
   '@types/cors@2.8.19':
@@ -774,6 +791,8 @@ snapshots:
   destroy@1.0.4: {}
 
   dev-ip@1.0.1: {}
+
+  dotenv@17.2.3: {}
 
   easy-extender@2.3.4:
     dependencies:

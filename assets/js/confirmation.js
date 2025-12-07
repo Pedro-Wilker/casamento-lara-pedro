@@ -32,9 +32,38 @@ document.getElementById('addAcompanhante').addEventListener('click', function ()
         <input type="text" name="acc_name_${acompanhanteCount}" placeholder="Nome completo" required>
         <input type="email" name="acc_email_${acompanhanteCount}" placeholder="E-mail (opcional)">
         <input type="tel" name="acc_phone_${acompanhanteCount}" placeholder="Telefone (opcional)">
+        
+        <button type="button" class="btn-add-mais" onclick="adicionarAcompanhanteAbaixo(this)">+ Adicionar outro acompanhante</button>
     `;
     list.appendChild(div);
 });
+
+// Função para adicionar acompanhante abaixo do botão clicado
+function adicionarAcompanhanteAbaixo(botao) {
+    acompanhanteCount++;
+    const div = document.createElement('div');
+    div.className = 'acompanhante-field';
+    div.innerHTML = `
+        <button type="button" class="remove-acompanhante" onclick="this.parentElement.remove(); acompanhanteCount=Math.max(0,acompanhanteCount-1)">×</button>
+        
+        <p class="acompanhante-label">Acompanhante ${acompanhanteCount}</p>
+        
+        <select name="acc_relacao_${acompanhanteCount}" class="relacao-select" required>
+            <option value="" disabled selected>Selecione a relação</option>
+            <option value="Parceiro(a)">Parceiro(a)</option>
+            <option value="Filho(a)">Filho(a)</option>
+        </select>
+        
+        <input type="text" name="acc_name_${acompanhanteCount}" placeholder="Nome completo" required>
+        <input type="email" name="acc_email_${acompanhanteCount}" placeholder="E-mail (opcional)">
+        <input type="tel" name="acc_phone_${acompanhanteCount}" placeholder="Telefone (opcional)">
+        
+        <button type="button" class="btn-add-mais" onclick="adicionarAcompanhanteAbaixo(this)">+ Adicionar outro acompanhante</button>
+    `;
+    
+    // Insere o novo campo após o campo atual do botão clicado
+    botao.parentElement.insertAdjacentElement('afterend', div);
+}
 
 // Envio do formulário
 document.getElementById('confirmationForm').addEventListener('submit', function (e) {
