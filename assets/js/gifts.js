@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         div.className = 'gift-item';
         div.dataset.id = item.id;
         div.dataset.ilimitado = item.ilimitado;
-        div.innerHTML = `${item.ilimitado ? 'Heart' : 'Diamond'} ${item.presente}`;
+        div.innerHTML = item.presente; // Removido Heart/Diamond
 
         div.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (ilimitado) {
             // Ilimitado: só muda visual
             el.classList.add('selected');
-            el.innerHTML = `Checkmark ${itemPendente.nome}`;
+            el.innerHTML = itemPendente.nome; // Removido Checkmark
         } else {
             // Finito: salva no banco
             try {
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.classList.add('selected');
                 el.style.opacity = '0.6';
                 el.style.pointerEvents = 'none';
-                el.innerHTML = `Checkmark ${itemPendente.nome}`;
+                el.innerHTML = itemPendente.nome; // Removido Checkmark
                 carregarPresentes();
             } catch (err) {
                 alert('Erro ao reservar. Tente novamente.');

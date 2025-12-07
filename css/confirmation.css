@@ -106,6 +106,25 @@
     color: white;
 }
 
+.btn-add-mais {
+    background: transparent;
+    border: 1px dashed #A15C2C;
+    color: #A15C2C;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: 'EB Garamond', serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.4s;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.btn-add-mais:hover {
+    background: #A15C2C;
+    color: white;
+}
+
 .acompanhante-field {
     background: rgba(245,240,235,0.6);
     padding: 20px;
@@ -165,7 +184,7 @@
     margin: 15px 0;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) { 
     .confirmation-section { 
         padding: 10px 15px 20px; 
     }
