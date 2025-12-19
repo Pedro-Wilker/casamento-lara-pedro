@@ -1,13 +1,17 @@
 /* ============================================================= */
-/* presentes-supabase.css — LISTA, MODAL E CONFIRMAÇÃO           */
+/* gifts.css — ESTILOS ATUALIZADOS E 100% COMPATÍVEIS COM O FOLDING */
 /* ============================================================= */
 
 /* Forçar a fonte em toda a seção de presentes */
 .gifts-folding-container,
+.giftsCardContainer,
 .gift-item,
+.gift-empty,
 .ver-lista-btn,
 .presentes-modal,
-.confirm-modal {
+.confirm-modal,
+.voltagem-aviso,
+.gifts-separator {
     font-family: 'GriffoClassicoSmallCaps', serif !important;
 }
 
@@ -21,127 +25,143 @@
     margin-bottom: 20px;
     font-size: 0.95rem;
     text-align: center;
+    letter-spacing: 0.05em;
     width: 100%;
 }
 
-/* Itens da Lista */
+.voltagem-aviso strong {
+    color: #A15C2C;
+}
+
+/* Separador de Presentes Reservados */
+.gifts-separator {
+    width: 100%;
+    text-align: center;
+    margin: 40px 0 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gifts-separator::before,
+.gifts-separator::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(161, 92, 44, 0.3), transparent);
+}
+
+.gifts-separator span {
+    padding: 0 15px;
+    color: #8b7355;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* Lista de presentes com respiro */
+.gifts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Respiro entre um item e outro */
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+/* Estilização do Item de Presente */
 .gift-item {
     background: rgba(255, 255, 255, 0.92);
-    padding: 15px;
-    border-radius: 10px;
+    padding: 18px 20px;
+    border-radius: 12px;
     border-left: 4px solid #A15C2C;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #4a2b1d;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    line-height: 1.4;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     cursor: pointer;
-    margin-bottom: 10px;
     transition: all 0.3s ease;
-}
-
-.gift-item.selected {
-    background: #e8d4b8 !important;
-    color: #8b7355 !important;
-    text-decoration: line-through;
-    border-left-color: #8b7355;
-}
-
-/* Botão Ver Lista */
-.ver-lista-btn {
-    background: #A15C2C;
-    color: white;
-    border: none;
-    padding: 15px 25px;
-    border-radius: 30px;
-    cursor: pointer;
-    margin-top: 20px;
-    font-size: 1rem;
-    box-shadow: 0 5px 15px rgba(161, 92, 44, 0.3);
-}
-
-/* MODAL DA LISTA COMPLETA */
-.presentes-modal {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: none; /* ESCONDIDO POR PADRÃO */
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    backdrop-filter: blur(5px);
-}
-
-.presentes-modal.show {
-    display: flex; /* MOSTRA QUANDO TEM A CLASSE SHOW */
-}
-
-.presentes-modal-content {
-    background: #f5f0eb;
-    width: 90%;
-    max-width: 450px;
-    max-height: 80vh;
-    border-radius: 20px;
-    padding: 30px;
     position: relative;
-    overflow-y: auto;
-}
-
-.presentes-modal-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #e8d4b8;
-    padding-bottom: 10px;
+    min-height: 60px;
 }
 
-.presentes-modal-close {
-    background: none;
-    border: none;
-    font-size: 2rem;
+/* Ajuste de padding para o modal onde existe o botão Reservar */
+#giftsListFull .gift-item {
+    padding-right: 100px; /* Garante que o texto não encoste no botão */
+}
+
+/* Botão Reservar (apenas no modal) */
+#giftsListFull .gift-item:not(.selected)::after {
+    content: "Reservar";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
     color: #A15C2C;
-    cursor: pointer;
+    background: #fff;
+    border: 1px solid #A15C2C;
+    border-radius: 8px;
+    padding: 6px 10px;
+    white-space: nowrap;
+    pointer-events: none;
 }
 
-/* MODAL DE CONFIRMAÇÃO */
-.confirm-modal {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: none; /* ESCONDIDO POR PADRÃO */
-    justify-content: center;
+/* Presente escolhido */
+.gift-item.selected {
+    background: linear-gradient(135deg, #A15C2C, #8B4513) !important;
+    color: white !important;
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
+.gift-item.selected::after {
+    display: none !important;
+}
+
+/* Botão de acesso à lista */
+.ver-lista-btn {
+    display: flex;
     align-items: center;
-    z-index: 3000;
-}
-
-.confirm-modal.show {
-    display: flex;
-}
-
-.confirm-modal-content {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    max-width: 320px;
-    width: 85%;
-}
-
-.confirm-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.btn-yes, .btn-no {
-    flex: 1;
-    padding: 12px;
-    border-radius: 10px;
+    justify-content: center;
+    width: 100%;
+    margin: 30px auto 10px;
+    padding: 18px;
+    background: #A15C2C;
+    color: #fff !important;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 20px rgba(161, 92, 44, 0.3);
     border: none;
     cursor: pointer;
-    font-family: 'GriffoClassicoSmallCaps', serif;
 }
 
-.btn-yes { background: #A15C2C; color: white; }
-.btn-no { background: #e8d4b8; color: #4a2b1d; }
+/* Responsividade Mobile */
+@media (max-width: 480px) {
+    .gift-item {
+        font-size: 0.95rem;
+        padding: 15px;
+        min-height: 55px;
+    }
+
+    #giftsListFull .gift-item {
+        padding-right: 85px; /* Respiro para o botão em telas pequenas */
+    }
+
+    #giftsListFull .gift-item:not(.selected)::after {
+        font-size: 0.75rem;
+        padding: 5px 8px;
+        right: 8px;
+    }
+
+    .voltagem-aviso {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+
+    .gifts-separator span {
+        font-size: 0.9rem;
+    }
+}
