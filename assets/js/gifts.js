@@ -7,10 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalClose = document.getElementById('modalClose');
     const giftsListFull = document.getElementById('giftsListFull');
 
-    // Modal de confirmação
     const confirmModal = document.getElementById('confirmModal');
     const confirmItemName = document.getElementById('confirmItemName');
-    const confirmMessage = document.getElementById('confirmMessage'); // novo elemento
+    const confirmMessage = document.getElementById('confirmMessage');
     const confirmYes = document.getElementById('confirmYes');
     const confirmNo = document.getElementById('confirmNo');
 
@@ -20,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let todosPresentes = [];
     let itemPendente = null;
+
+    const avisoVoltagemHTML = '<div class="voltagem-aviso">⚡ Atenção: A voltagem em Jacobina é <strong>220V</strong></div>';
 
     async function carregarPresentes() {
         try {
@@ -50,13 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function exibirListaCurta() {
         const disponiveis = todosPresentes.filter(p => p.status === 'DISPONIVEL').slice(0, 10);
-        giftsList.innerHTML = '';
+        giftsList.innerHTML = avisoVoltagemHTML;
         disponiveis.forEach(item => criarItemPresente(item, giftsList));
         verListaCompleta.style.display = disponiveis.length >= 10 ? 'block' : 'none';
     }
 
     function exibirListaCompleta() {
-        giftsListFull.innerHTML = '';
+        giftsListFull.innerHTML = avisoVoltagemHTML;
         const disponiveis = todosPresentes.filter(p => p.status === 'DISPONIVEL');
         const escolhidos = todosPresentes.filter(p => p.status === 'ESCOLHIDO');
 
@@ -74,29 +75,18 @@ document.addEventListener('DOMContentLoaded', () => {
         div.className = 'gift-item';
         div.dataset.id = item.id;
         div.dataset.ilimitado = item.ilimitado;
-        div.innerHTML = item.presente; // Removido Heart/Diamond
+        div.innerHTML = item.presente;
 
         div.addEventListener('click', (e) => {
             e.stopPropagation();
-
-            if (div.classList.contains('selected')) return; // já escolhido
-
+            if (div.classList.contains('selected')) return;
             itemPendente = { id: item.id, el: div, nome: item.presente, ilimitado: item.ilimitado };
             confirmItemName.textContent = item.presente;
-
-            // MENSAGEM DIFERENTE PARA ILIMITADO
             if (item.ilimitado) {
-                confirmMessage.innerHTML = `
-                    <p>Este item <strong>pode ser presenteado por mais de uma pessoa</strong>.</p>
-                    <p>Ao confirmar, ele será registrado como escolhido por você, mas <strong>continuará na lista</strong> para outros convidados.</p>
-                `;
+                confirmMessage.innerHTML = '<p>Este item pode ser presenteado por mais de uma pessoa.</p>';
             } else {
-                confirmMessage.innerHTML = `
-                    <p>Caso você marque este item, ele <strong>ficará indisponível</strong> para os outros convidados.</p>
-                    <p><strong>Este processo é irreversível.</strong></p>
-                `;
+                confirmMessage.innerHTML = '<p>Caso você marque este item, ele ficará indisponível para os outros convidados.</p>';
             }
-
             confirmModal.classList.add('show');
         });
 
@@ -104,35 +94,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return div;
     }
 
-    // CONFIRMAÇÃO
     confirmYes.addEventListener('click', async () => {
         if (!itemPendente) return;
-
         const { id, el, ilimitado } = itemPendente;
-
         if (ilimitado) {
-            // Ilimitado: só muda visual
             el.classList.add('selected');
-            el.innerHTML = itemPendente.nome; // Removido Checkmark
         } else {
-            // Finito: salva no banco
             try {
-                const { error } = await supabase
-                    .from('presentes')
-                    .update({ status: 'ESCOLHIDO' })
-                    .eq('id', id);
+                const { error } = await supabase.from('presentes').update({ status: 'ESCOLHIDO' }).eq('id', id);
                 if (error) throw error;
-
                 el.classList.add('selected');
-                el.style.opacity = '0.6';
-                el.style.pointerEvents = 'none';
-                el.innerHTML = itemPendente.nome; // Removido Checkmark
                 carregarPresentes();
             } catch (err) {
-                alert('Erro ao reservar. Tente novamente.');
+                alert('Erro ao reservar.');
             }
         }
-
         confirmModal.classList.remove('show');
         itemPendente = null;
     });
@@ -142,12 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
         itemPendente = null;
     });
 
-    // ABRIR/FECHAR CARD
     giftsCard.addEventListener('click', (e) => {
-        if (e.target.closest('.pix-copy-area') || 
-            e.target.closest('.gift-item') || 
-            e.target.closest('.ver-lista-btn')) return;
-
+        if (e.target.closest('.pix-copy-area') || e.target.closest('.gift-item') || e.target.closest('.ver-lista-btn')) return;
         giftsCard.classList.toggle('active');
         if (giftsCard.classList.contains('active')) {
             carregarPresentes();
@@ -157,19 +129,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ABRIR MODAL COMPLETA
     verListaCompleta.addEventListener('click', (e) => {
         e.stopPropagation();
         modal.classList.add('show');
         exibirListaCompleta();
     });
 
-    // FECHAR MODAIS
     modalClose.addEventListener('click', () => modal.classList.remove('show'));
     modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('show'); });
     confirmModal.addEventListener('click', e => { if (e.target === confirmModal) confirmModal.classList.remove('show'); });
 
-    // COPIAR PIX
     document.getElementById('pixCopyArea')?.addEventListener('click', async (e) => {
         e.stopPropagation();
         try {
