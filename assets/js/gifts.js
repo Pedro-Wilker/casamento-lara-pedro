@@ -74,11 +74,48 @@ document.addEventListener('DOMContentLoaded', () => {
         div.className = 'gift-item';
         div.dataset.id = item.id;
         div.dataset.ilimitado = item.ilimitado;
-        div.innerHTML = item.presente; // Removido Heart/Diamond
+        
+        // Container para o texto do presente
+        const textoContainer = document.createElement('span');
+        textoContainer.textContent = item.presente;
+        
+        // Botão Reservar
+        const reserveBtn = document.createElement('button');
+        reserveBtn.className = 'reserve-btn';
+        reserveBtn.textContent = 'Reservar';
+        
+        div.appendChild(textoContainer);
+        div.appendChild(reserveBtn);
 
-        div.addEventListener('click', (e) => {
+        // Evento de clique no botão Reservar
+        reserveBtn.addEventListener('click', (e) => {
             e.stopPropagation();
+            
+            if (div.classList.contains('selected')) return; // já escolhido
 
+            itemPendente = { id: item.id, el: div, nome: item.presente, ilimitado: item.ilimitado };
+            confirmItemName.textContent = item.presente;
+
+            // MENSAGEM DIFERENTE PARA ILIMITADO
+            if (item.ilimitado) {
+                confirmMessage.innerHTML = `
+                    <p>Este item <strong>pode ser presenteado por mais de uma pessoa</strong>.</p>
+                    <p>Ao confirmar, ele será registrado como escolhido por você, mas <strong>continuará na lista</strong> para outros convidados.</p>
+                `;
+            } else {
+                confirmMessage.innerHTML = `
+                    <p>Caso você marque este item, ele <strong>ficará indisponível</strong> para os outros convidados.</p>
+                    <p><strong>Este processo é irreversível.</strong></p>
+                `;
+            }
+
+            confirmModal.classList.add('show');
+        });
+
+        // Evento de clique no item (para compatibilidade com comportamento anterior)
+        div.addEventListener('click', (e) => {
+            if (e.target === reserveBtn) return; // Se clicou no botão, não executa este evento
+            
             if (div.classList.contains('selected')) return; // já escolhido
 
             itemPendente = { id: item.id, el: div, nome: item.presente, ilimitado: item.ilimitado };
@@ -113,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (ilimitado) {
             // Ilimitado: só muda visual
             el.classList.add('selected');
-            el.innerHTML = itemPendente.nome; // Removido Checkmark
+            el.querySelector('span').textContent = itemPendente.nome;
         } else {
             // Finito: salva no banco
             try {
@@ -126,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.classList.add('selected');
                 el.style.opacity = '0.6';
                 el.style.pointerEvents = 'none';
-                el.innerHTML = itemPendente.nome; // Removido Checkmark
+                el.querySelector('span').textContent = itemPendente.nome;
                 carregarPresentes();
             } catch (err) {
                 alert('Erro ao reservar. Tente novamente.');

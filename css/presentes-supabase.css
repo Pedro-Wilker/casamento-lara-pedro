@@ -17,7 +17,7 @@
     padding: 16px 20px;
     border-radius: 12px;
     border-left: 4px solid #A15C2C;
-    font-family: 'EB Garamond', Georgia, serif;
+    font-family: 'GriffoClassicoSmallCaps', serif;
     font-size: 1.05rem;
     color: #4a2b1d;
     line-height: 1.5;
@@ -26,6 +26,9 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .gift-item:hover {
@@ -42,6 +45,26 @@
     transition: all 0.3s ease;
 }
 
+/* Botão Reservar */
+.gift-item .reserve-btn {
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 0.8rem;
+    color: #A15C2C;
+    background: transparent;
+    border: 1px solid #A15C2C;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+.gift-item .reserve-btn:hover {
+    background: #A15C2C;
+    color: white;
+}
+
 /* Presente ilimitado (ícone diferente) */
 .gift-item[data-ilimitado="true"]::before {
     content: "✦";
@@ -56,6 +79,7 @@
     opacity: 0.9;
     pointer-events: none;
     transform: none !important;
+    position: relative;
 }
 
 .gift-item.selected::before {
@@ -63,6 +87,21 @@
     color: white;
     font-weight: bold;
     animation: pulse 1.5s infinite;
+}
+
+.gift-item.selected::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: translateY(-50%);
+}
+
+.gift-item.selected .reserve-btn {
+    display: none;
 }
 
 /* Feedback quando todos acabarem */
@@ -114,6 +153,11 @@
     .gift-item {
         padding: 14px 16px;
         font-size: 1rem;
+    }
+
+    .gift-item .reserve-btn {
+        font-size: 0.7rem;
+        padding: 3px 6px;
     }
 
     .gift-item::before {
