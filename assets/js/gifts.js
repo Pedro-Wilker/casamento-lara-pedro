@@ -50,10 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function exibirListaCurta() {
+        // Filtra apenas os disponíveis e pega exatamente os 10 primeiros
         const disponiveis = todosPresentes.filter(p => p.status === 'DISPONIVEL').slice(0, 10);
         giftsList.innerHTML = avisoVoltagemHTML;
         disponiveis.forEach(item => criarItemPresente(item, giftsList));
-        verListaCompleta.style.display = disponiveis.length >= 10 ? 'block' : 'none';
+        
+        // Mostra o botão se houver mais de 10 itens no total
+        const totalDisponiveis = todosPresentes.filter(p => p.status === 'DISPONIVEL').length;
+        verListaCompleta.style.display = totalDisponiveis > 10 ? 'block' : 'none';
     }
 
     function exibirListaCompleta() {

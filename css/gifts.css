@@ -30,7 +30,7 @@
 }
 
 .giftsCardContainer.active {
-    height: 1650px;
+    height: 1550px; /* Reduzido de 1650px para se ajustar aos 10 itens */
     box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
     margin-bottom: 0;
     transition: height 0.9s cubic-bezier(0.4, 0, 0.2, 1);
@@ -108,7 +108,7 @@
 }
 
 .giftsCardContainer .second {
-    height: 900px;
+    height: 850px; /* Reduzido de 900px */
     bottom: -2px;
     top: auto;
 }
@@ -169,20 +169,20 @@
 }
 
 .giftsCardContainer .secondTop {
-    height: 900px;
+    height: 850px; /* Reduzido de 900px */
     background: #f0f0f0;
     border: 1px solid #e8d4b8;
 }
 
 .giftsCardContainer .secondBehind {
-    height: 900px;
+    height: 850px; /* Reduzido de 900px */
     background: #fff;
     transform: rotateX(-180deg);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 32px 26px 120px; /* Padding inferior aumentado para dar espaço ao botão fixo */
+    padding: 32px 26px 100px;
     box-shadow: 0px 11px 25px -1px rgba(0, 0, 0, 0.1);
     border: 1px solid #e8d4b8;
 }
@@ -368,7 +368,7 @@
     }
 
     .giftsCardContainer.active {
-        height: 1750px;
+        height: 1650px; /* Reduzido de 1750px */
     }
 
     .giftsCardContainer .firstDisplay {
@@ -396,13 +396,13 @@
     }
 
     .giftsCardContainer .second {
-        height: 950px;
+        height: 900px; /* Reduzido de 950px */
     }
 
     .giftsCardContainer .secondTop,
     .giftsCardContainer .secondBehind {
-        height: 950px !important;
-        padding: 30px 22px 140px; /* Padding inferior aumentado no mobile para evitar sobreposição */
+        height: 900px !important;
+        padding: 30px 22px 140px;
     }
 
     .giftsCardContainer .gifts-list {
@@ -450,13 +450,13 @@
 
 @media (max-width: 360px) {
     .giftsCardContainer.active {
-        height: 1850px;
+        height: 1750px; /* Reduzido de 1850px */
     }
 
     .giftsCardContainer .second,
     .giftsCardContainer .secondTop,
     .giftsCardContainer .secondBehind {
-        height: 1000px !important;
+        height: 950px !important;
         padding-bottom: 150px;
     }
 
