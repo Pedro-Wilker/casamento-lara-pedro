@@ -12,12 +12,20 @@
     padding: 0 10px;
 }
 
+/* Fonte: Griffo Classico Small Caps aplicada em toda a lista de presentes */
+.gifts-list,
+.gift-item,
+.gift-empty,
+.ver-lista-btn {
+    font-family: 'GriffoClassicoSmallCaps', serif;
+}
+
 .gift-item {
     background: rgba(255, 255, 255, 0.92);
     padding: 16px 20px;
+    padding-right: 90px; /* espaço para o botão visual à direita */
     border-radius: 12px;
     border-left: 4px solid #A15C2C;
-    font-family: 'EB Garamond', Georgia, serif;
     font-size: 1.05rem;
     color: #4a2b1d;
     line-height: 1.5;
@@ -48,6 +56,32 @@
     color: #8B7355;
 }
 
+/* Botão visual "Reservar" no lado direito — não altera o comportamento de clique */
+.gift-item::after {
+    content: "Reservar";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 0.9rem;
+    color: #A15C2C;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(161, 92, 44, 0.6);
+    border-radius: 10px;
+    padding: 6px 12px;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    pointer-events: none; /* garante que o clique continue no item */
+    transition: all 0.25s ease;
+}
+
+.gift-item:hover::after {
+    background: #A15C2C;
+    color: #fff;
+    border-color: #A15C2C;
+}
+
 /* Presente escolhido (finito) */
 .gift-item.selected {
     background: linear-gradient(135deg, #A15C2C, #8B4513) !important;
@@ -56,6 +90,12 @@
     opacity: 0.9;
     pointer-events: none;
     transform: none !important;
+
+    /* traço no texto para indicar indisponibilidade */
+    text-decoration-line: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: rgba(255, 255, 255, 0.85);
+    text-decoration-skip-ink: auto;
 }
 
 .gift-item.selected::before {
@@ -65,11 +105,15 @@
     animation: pulse 1.5s infinite;
 }
 
+/* esconde o botão visual quando já está selecionado */
+.gift-item.selected::after {
+    opacity: 0;
+}
+
 /* Feedback quando todos acabarem */
 .gift-empty {
     text-align: center;
     padding: 30px 20px;
-    font-family: 'GriffoClassicoSmallCaps', serif;
     font-size: 1.3rem;
     color: #8B7355;
     background: rgba(255, 255, 255, 0.7);
@@ -88,7 +132,6 @@
     border: 2px dashed #A15C2C;
     color: #A15C2C;
     border-radius: 12px;
-    font-family: 'GriffoClassicoSmallCaps', serif;
     font-size: 1rem;
     letter-spacing: 1px;
     cursor: pointer;
@@ -113,11 +156,14 @@
 
     .gift-item {
         padding: 14px 16px;
+        padding-right: 84px; /* ajusta espaço para o botão menor */
         font-size: 1rem;
     }
 
-    .gift-item::before {
-        font-size: 1em;
+    .gift-item::after {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+        right: 12px;
     }
 
     .gift-empty {
