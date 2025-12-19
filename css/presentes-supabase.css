@@ -1,5 +1,5 @@
 /* ============================================================= */
-/* gifts.css — ESTILOS ATUALIZADOS E 100% COMPATÍVEIS COM O FOLDING */
+/* presentes-supabase.css — ESTILOS PARA LISTA DE PRESENTES     */
 /* ============================================================= */
 
 /* Forçar a fonte em toda a seção de presentes */
@@ -60,17 +60,17 @@
     text-transform: uppercase;
 }
 
-/* Lista de presentes com respiro */
-.gifts-list {
+/* Lista de presentes no modal */
+.presentes-modal-body .gifts-list {
     display: flex;
     flex-direction: column;
-    gap: 16px; /* Respiro entre um item e outro */
+    gap: 16px;
     width: 100%;
     padding-bottom: 20px;
 }
 
-/* Estilização do Item de Presente */
-.gift-item {
+/* Estilização do Item de Presente no Modal */
+.presentes-modal-body .gift-item {
     background: rgba(255, 255, 255, 0.92);
     padding: 18px 20px;
     border-radius: 12px;
@@ -85,15 +85,11 @@
     display: flex;
     align-items: center;
     min-height: 60px;
-}
-
-/* Ajuste de padding para o modal onde existe o botão Reservar */
-#giftsListFull .gift-item {
-    padding-right: 100px; /* Garante que o texto não encoste no botão */
+    padding-right: 110px; /* Espaço para o botão Reservar */
 }
 
 /* Botão Reservar (apenas no modal) */
-#giftsListFull .gift-item:not(.selected)::after {
+.presentes-modal-body .gift-item:not(.selected)::after {
     content: "Reservar";
     position: absolute;
     right: 12px;
@@ -104,55 +100,51 @@
     background: #fff;
     border: 1px solid #A15C2C;
     border-radius: 8px;
-    padding: 6px 10px;
+    padding: 6px 12px;
     white-space: nowrap;
     pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.presentes-modal-body .gift-item:hover:not(.selected)::after {
+    background: #A15C2C;
+    color: #fff;
 }
 
 /* Presente escolhido */
-.gift-item.selected {
+.presentes-modal-body .gift-item.selected {
     background: linear-gradient(135deg, #A15C2C, #8B4513) !important;
     color: white !important;
     text-decoration: line-through;
-    opacity: 0.8;
+    opacity: 0.7;
+    pointer-events: none;
 }
 
-.gift-item.selected::after {
+.presentes-modal-body .gift-item.selected::after {
     display: none !important;
 }
 
-/* Botão de acesso à lista */
-.ver-lista-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 30px auto 10px;
-    padding: 18px;
-    background: #A15C2C;
-    color: #fff !important;
-    border-radius: 50px;
+/* Mensagem de lista vazia */
+.gift-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #8b7355;
     font-size: 1.1rem;
-    box-shadow: 0 8px 20px rgba(161, 92, 44, 0.3);
-    border: none;
-    cursor: pointer;
+    font-style: italic;
 }
 
 /* Responsividade Mobile */
 @media (max-width: 480px) {
-    .gift-item {
+    .presentes-modal-body .gift-item {
         font-size: 0.95rem;
         padding: 15px;
+        padding-right: 95px;
         min-height: 55px;
     }
 
-    #giftsListFull .gift-item {
-        padding-right: 85px; /* Respiro para o botão em telas pequenas */
-    }
-
-    #giftsListFull .gift-item:not(.selected)::after {
+    .presentes-modal-body .gift-item:not(.selected)::after {
         font-size: 0.75rem;
-        padding: 5px 8px;
+        padding: 5px 10px;
         right: 8px;
     }
 

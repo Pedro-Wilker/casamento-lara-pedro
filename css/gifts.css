@@ -14,7 +14,7 @@
     justify-content: center;
     align-items: flex-start;
     position: relative;
-    overflow: visible; /* Alterado de hidden para visible */
+    overflow: visible;
 }
 
 .giftsCardContainer {
@@ -30,10 +30,10 @@
 }
 
 .giftsCardContainer.active {
-    height: auto; /* Alterado para auto para comportar todo o conteúdo */
-    min-height: 1650px;
+    height: auto;
+    min-height: 1900px; /* Aumentado para comportar todo o conteúdo incluindo PIX */
     box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
-    margin-bottom: 50px; /* Adicionado margem inferior para respiro */
+    margin-bottom: 80px;
     transition: height 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -86,12 +86,10 @@
 }
 
 @keyframes pulse {
-
     0%,
     100% {
         opacity: 0.7;
     }
-
     50% {
         opacity: 1;
     }
@@ -116,13 +114,13 @@
 }
 
 .giftsCardContainer .second {
-    height: 900px;
+    height: 1100px; /* Aumentado para comportar lista + botão */
     bottom: -2px;
     top: auto;
 }
 
 .giftsCardContainer .third {
-    height: 420px;
+    height: 520px; /* Aumentado para comportar QR Code e PIX completo */
     bottom: -2px;
     top: auto;
 }
@@ -177,20 +175,20 @@
 }
 
 .giftsCardContainer .secondTop {
-    height: 900px;
+    height: 1100px;
     background: #f0f0f0;
     border: 1px solid #e8d4b8;
 }
 
 .giftsCardContainer .secondBehind {
-    height: 900px;
+    height: 1100px;
     background: #fff;
     transform: rotateX(-180deg);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 32px 26px 50px;
+    padding: 32px 26px 80px; /* Aumentado padding inferior */
     box-shadow: 0px 11px 25px -1px rgba(0, 0, 0, 0.1);
     border: 1px solid #e8d4b8;
 }
@@ -201,7 +199,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 14px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .giftsCardContainer .gift-item {
@@ -226,16 +224,16 @@
 }
 
 .giftsCardContainer .thirdTop {
-    height: 420px;
+    height: 520px;
     background: #e8e8e8;
     border: 1px solid #e8d4b8;
 }
 
 .giftsCardContainer .thirdBehind {
-    height: 420px;
+    height: 520px;
     background: #fff;
     transform: rotateX(-180deg);
-    padding: 40px 30px 60px;
+    padding: 50px 30px 80px; /* Aumentado padding */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -300,10 +298,9 @@
 }
 
 #copyFeedback {
-    position: absolute;
-    top: -50px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    display: block;
+    margin-top: 15px;
     background: #4a2b1d;
     color: white;
     padding: 8px 18px;
@@ -314,7 +311,7 @@
     transition: opacity 0.4s;
     white-space: nowrap;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    z-index: 20;
+    text-align: center;
 }
 
 #copyFeedback.show {
@@ -324,7 +321,7 @@
 .giftsCardContainer.active .third,
 .giftsCardContainer.active .thirdBehind {
     height: auto !important;
-    min-height: 420px;
+    min-height: 520px;
 }
 
 .giftsCardContainer.active .first {
@@ -371,134 +368,37 @@
     transform: scale(1.12);
 }
 
-/* RESPONSIVO */
-@media (max-width: 480px) {
-    .gifts-folding-container {
-        padding: 30px 15px 0;
-    }
-
-    .giftsCardContainer {
-        max-width: 340px;
-        height: 230px;
-    }
-
-    .giftsCardContainer.active {
-        height: auto;
-        min-height: 1750px;
-    }
-
-    .giftsCardContainer .firstDisplay {
-        height: 230px;
-        padding: 32px 26px;
-    }
-
-    .giftsCardContainer .gift-message {
-        font-size: 0.95rem;
-        letter-spacing: 0.14em;
-    }
-
-    .giftsCardContainer .tap-hint {
-        font-size: 0.8rem;
-        letter-spacing: 0.18em;
-    }
-
-    .giftsCardContainer .first {
-        height: 200px;
-    }
-
-    .giftsCardContainer .firstTop,
-    .giftsCardContainer .firstBehind {
-        height: 200px;
-    }
-
-    .giftsCardContainer .second {
-        height: 950px;
-    }
-
-    .giftsCardContainer .secondTop,
-    .giftsCardContainer .secondBehind {
-        height: 950px !important;
-        padding: 30px 22px 60px;
-    }
-
-    .giftsCardContainer .gifts-list {
-        gap: 12px;
-    }
-
-    .giftsCardContainer .gift-item {
-        font-size: 1rem;
-        padding: 14px 18px;
-    }
-
-    .giftsCardContainer .third,
-    .giftsCardContainer .thirdTop,
-    .giftsCardContainer .thirdBehind {
-        height: auto !important;
-        min-height: 360px !important;
-    }
-
-    .giftsCardContainer .thirdBehind {
-        padding: 30px 24px 50px !important;
-    }
-
-    .giftsCardContainer .pix-title {
-        font-size: 1.4rem !important;
-        margin-bottom: 20px !important;
-    }
-
-    .qrcode-img {
-        width: 150px !important;
-        height: 150px !important;
-        border-width: 3px !important;
-    }
-
-    .pix-copy-area {
-        padding: 14px 18px;
-        gap: 10px;
-        max-width: 270px;
-        font-size: 0.98rem;
-    }
-
-    .copy-icon-img {
-        width: 24px;
-        height: 24px;
-    }
-}
-
-@media (max-width: 360px) {
-    .giftsCardContainer.active {
-        height: auto;
-        min-height: 1850px;
-    }
-
-    .giftsCardContainer .second,
-    .giftsCardContainer .secondTop,
-    .giftsCardContainer .secondBehind {
-        height: 1000px !important;
-    }
-
-    .giftsCardContainer .third,
-    .giftsCardContainer .thirdTop,
-    .giftsCardContainer .thirdBehind {
-        height: auto !important;
-        min-height: 340px !important;
-    }
-
-    .qrcode-img {
-        width: 140px !important;
-        height: 140px !important;
-    }
-}
-
-/* ===== SUAS ADIÇÕES ORIGINAIS + CORREÇÕES FINAIS ===== */
-
-/* Presentes clicáveis */
-.giftsCardContainer .gift-item {
+/* ===== BOTÃO VER LISTA COMPLETA - CORRIGIDO ===== */
+.ver-lista-btn {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 30px auto 40px; /* Margem adequada */
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #A15C2C, #8B4513);
+    border: none;
+    color: #fff;
+    border-radius: 12px;
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    text-align: center;
     user-select: none;
+    pointer-events: auto !important;
+    z-index: 5;
+    position: relative; /* Garante posicionamento correto */
+    box-shadow: 0 6px 20px rgba(161, 92, 44, 0.3);
 }
 
+.ver-lista-btn:hover {
+    background: linear-gradient(135deg, #8B4513, #6B3410);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(161, 92, 44, 0.4);
+}
+
+/* ===== PRESENTES CLICÁVEIS ===== */
 .giftsCardContainer .gift-item:hover {
     background: rgba(161, 92, 44, 0.15);
     transform: translateY(-3px);
@@ -514,7 +414,7 @@
 }
 
 .giftsCardContainer .gift-item.selected::before {
-    content: "Checkmark";
+    content: "✓";
     color: white;
     font-weight: bold;
 }
@@ -525,41 +425,11 @@
 }
 
 .giftsCardContainer .gift-item[data-ilimitado="true"].selected::before {
-    content: "Checkmark";
+    content: "✓";
     color: white;
 }
 
-/* BOTÃO VER LISTA COMPLETA — FORÇADO A FICAR ABAIXO */
-.ver-lista-btn {
-    display: block;
-    width: 100%;
-    max-width: 320px;
-    margin: 45px auto 30px;
-    padding: 16px 20px;
-    background: transparent;
-    border: 2px dashed #A15C2C;
-    color: #A15C2C;
-    border-radius: 12px;
-    font-family: 'GriffoClassicoSmallCaps', serif;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    text-align: center;
-    user-select: none;
-    pointer-events: auto !important;
-    z-index: 10;
-}
-
-.ver-lista-btn:hover {
-    background: #A15C2C;
-    color: white;
-    border-style: solid;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(161, 92, 44, 0.3);
-}
-
-/* MODAL — exatamente como você fez */
+/* ===== MODAL LISTA COMPLETA ===== */
 .presentes-modal {
     position: fixed;
     top: 0;
@@ -638,25 +508,7 @@
     overflow-y: auto;
 }
 
-@media (max-width: 480px) {
-    .presentes-modal-content {
-        max-height: 92vh;
-        margin: 10px;
-    }
-
-    .presentes-modal-header {
-        padding: 16px 20px;
-    }
-
-    .presentes-modal-header h3 {
-        font-size: 1.15rem;
-    }
-
-    .presentes-modal-body {
-        padding: 20px;
-    }
-}
-
+/* ===== MODAL DE CONFIRMAÇÃO ===== */
 .confirm-modal {
     position: fixed;
     top: 0;
@@ -749,10 +601,157 @@
 .btn-no {
     background: transparent;
     color: #A15C2C;
-    border: 2px dashed #A15C2C;
+    border: 2px solid #A15C2C;
 }
 
 .btn-no:hover {
     background: rgba(161, 92, 44, 0.1);
     transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 480px) {
+    .gifts-folding-container {
+        padding: 30px 15px 0;
+    }
+
+    .giftsCardContainer {
+        max-width: 340px;
+        height: 230px;
+    }
+
+    .giftsCardContainer.active {
+        height: auto;
+        min-height: 2000px; /* Aumentado para mobile */
+    }
+
+    .giftsCardContainer .firstDisplay {
+        height: 230px;
+        padding: 32px 26px;
+    }
+
+    .giftsCardContainer .gift-message {
+        font-size: 0.95rem;
+        letter-spacing: 0.14em;
+    }
+
+    .giftsCardContainer .tap-hint {
+        font-size: 0.8rem;
+        letter-spacing: 0.18em;
+    }
+
+    .giftsCardContainer .first {
+        height: 200px;
+    }
+
+    .giftsCardContainer .firstTop,
+    .giftsCardContainer .firstBehind {
+        height: 200px;
+    }
+
+    .giftsCardContainer .second {
+        height: 1150px;
+    }
+
+    .giftsCardContainer .secondTop,
+    .giftsCardContainer .secondBehind {
+        height: 1150px !important;
+        padding: 30px 22px 80px;
+    }
+
+    .giftsCardContainer .gifts-list {
+        gap: 12px;
+    }
+
+    .giftsCardContainer .gift-item {
+        font-size: 1rem;
+        padding: 14px 18px;
+    }
+
+    .giftsCardContainer .third,
+    .giftsCardContainer .thirdTop,
+    .giftsCardContainer .thirdBehind {
+        height: auto !important;
+        min-height: 480px !important;
+    }
+
+    .giftsCardContainer .thirdBehind {
+        padding: 40px 24px 70px !important;
+    }
+
+    .giftsCardContainer .pix-title {
+        font-size: 1.4rem !important;
+        margin-bottom: 20px !important;
+    }
+
+    .qrcode-img {
+        width: 150px !important;
+        height: 150px !important;
+        border-width: 3px !important;
+    }
+
+    .pix-copy-area {
+        padding: 14px 18px;
+        gap: 10px;
+        max-width: 270px;
+        font-size: 0.98rem;
+    }
+
+    .copy-icon-img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .ver-lista-btn {
+        max-width: 280px;
+        padding: 14px 18px;
+        font-size: 0.95rem;
+    }
+
+    .presentes-modal-content {
+        max-height: 92vh;
+        margin: 10px;
+    }
+
+    .presentes-modal-header {
+        padding: 16px 20px;
+    }
+
+    .presentes-modal-header h3 {
+        font-size: 1.15rem;
+    }
+
+    .presentes-modal-body {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .giftsCardContainer.active {
+        height: auto;
+        min-height: 2100px;
+    }
+
+    .giftsCardContainer .second,
+    .giftsCardContainer .secondTop,
+    .giftsCardContainer .secondBehind {
+        height: 1200px !important;
+    }
+
+    .giftsCardContainer .third,
+    .giftsCardContainer .thirdTop,
+    .giftsCardContainer .thirdBehind {
+        height: auto !important;
+        min-height: 460px !important;
+    }
+
+    .qrcode-img {
+        width: 140px !important;
+        height: 140px !important;
+    }
+
+    .ver-lista-btn {
+        max-width: 260px;
+        font-size: 0.9rem;
+    }
 }
