@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let todosPresentes = [];
     let itemPendente = null;
 
-    const avisoVoltagemHTML = '<div class="voltagem-aviso">⚡ Atenção: A voltagem em Jacobina é <strong>220V</strong></div>';
+    const avisoVoltagemHTML = '<div class="voltagem-aviso">⚡ Atenção: A nossa voltagem é <strong>220V</strong></div>';
 
     async function carregarPresentes() {
         try {
