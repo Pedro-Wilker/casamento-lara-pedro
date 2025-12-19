@@ -31,7 +31,7 @@
 
 .giftsCardContainer.active {
     height: auto;
-    min-height: 1400px;
+    min-height: 1500px;
     box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
     margin-bottom: 80px;
     transition: height 0.9s cubic-bezier(0.4, 0, 0.2, 1);
@@ -115,13 +115,13 @@
 
 .giftsCardContainer .second {
     height: auto;
-    min-height: 700px;
+    min-height: 750px;
     bottom: -2px;
     top: auto;
 }
 
 .giftsCardContainer .third {
-    height: 420px;
+    height: 480px;
     bottom: -2px;
     top: auto;
 }
@@ -177,14 +177,14 @@
 
 .giftsCardContainer .secondTop {
     height: auto;
-    min-height: 700px;
+    min-height: 750px;
     background: #f0f0f0;
     border: 1px solid #e8d4b8;
 }
 
 .giftsCardContainer .secondBehind {
     height: auto;
-    min-height: 700px;
+    min-height: 750px;
     background: #fff;
     transform: rotateX(-180deg);
     display: flex;
@@ -227,16 +227,16 @@
 }
 
 .giftsCardContainer .thirdTop {
-    height: 420px;
+    height: 480px;
     background: #e8e8e8;
     border: 1px solid #e8d4b8;
 }
 
 .giftsCardContainer .thirdBehind {
-    height: 420px;
+    height: 480px;
     background: #fff;
     transform: rotateX(-180deg);
-    padding: 30px 30px 40px;
+    padding: 40px 30px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -251,12 +251,12 @@
     font-size: 1.55rem;
     color: #4a2b1d;
     letter-spacing: 0.25em;
-    margin: 0 0 20px 0 !important;
+    margin: 0 0 25px 0 !important;
     text-align: center;
 }
 
 .qrcode-container {
-    margin: 10px auto 20px;
+    margin: 15px auto 25px;
     text-align: center;
     display: block;
 }
@@ -303,7 +303,7 @@
 #copyFeedback {
     position: relative;
     display: block;
-    margin-top: 12px;
+    margin-top: 15px;
     background: #4a2b1d;
     color: white;
     padding: 8px 18px;
@@ -324,7 +324,7 @@
 .giftsCardContainer.active .third,
 .giftsCardContainer.active .thirdBehind {
     height: auto !important;
-    min-height: 420px;
+    min-height: 480px;
 }
 
 .giftsCardContainer.active .first {
@@ -625,7 +625,7 @@
 
     .giftsCardContainer.active {
         height: auto;
-        min-height: 1300px;
+        min-height: 1400px;
     }
 
     .giftsCardContainer .firstDisplay {
@@ -656,7 +656,7 @@
     .giftsCardContainer .secondTop,
     .giftsCardContainer .secondBehind {
         height: auto !important;
-        min-height: 650px !important;
+        min-height: 700px !important;
         padding: 30px 22px 20px;
     }
 
@@ -673,16 +673,16 @@
     .giftsCardContainer .thirdTop,
     .giftsCardContainer .thirdBehind {
         height: auto !important;
-        min-height: 380px !important;
+        min-height: 440px !important;
     }
 
     .giftsCardContainer .thirdBehind {
-        padding: 25px 20px 35px !important;
+        padding: 35px 20px 50px !important;
     }
 
     .giftsCardContainer .pix-title {
         font-size: 1.4rem !important;
-        margin-bottom: 15px !important;
+        margin-bottom: 20px !important;
     }
 
     .qrcode-img {
@@ -692,7 +692,7 @@
     }
 
     .qrcode-container {
-        margin: 8px auto 15px;
+        margin: 12px auto 20px;
     }
 
     .pix-copy-area {
@@ -735,21 +735,21 @@
 @media (max-width: 360px) {
     .giftsCardContainer.active {
         height: auto;
-        min-height: 1250px;
+        min-height: 1350px;
     }
 
     .giftsCardContainer .second,
     .giftsCardContainer .secondTop,
     .giftsCardContainer .secondBehind {
         height: auto !important;
-        min-height: 620px !important;
+        min-height: 680px !important;
     }
 
     .giftsCardContainer .third,
     .giftsCardContainer .thirdTop,
     .giftsCardContainer .thirdBehind {
         height: auto !important;
-        min-height: 360px !important;
+        min-height: 420px !important;
     }
 
     .qrcode-img {
