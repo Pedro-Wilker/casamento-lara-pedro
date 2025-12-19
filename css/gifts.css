@@ -31,7 +31,7 @@
 
 .giftsCardContainer.active {
     height: auto;
-    min-height: 1900px; /* Aumentado para comportar todo o conteúdo incluindo PIX */
+    min-height: 1400px;
     box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
     margin-bottom: 80px;
     transition: height 0.9s cubic-bezier(0.4, 0, 0.2, 1);
@@ -114,13 +114,14 @@
 }
 
 .giftsCardContainer .second {
-    height: 1100px; /* Aumentado para comportar lista + botão */
+    height: auto;
+    min-height: 700px;
     bottom: -2px;
     top: auto;
 }
 
 .giftsCardContainer .third {
-    height: 520px; /* Aumentado para comportar QR Code e PIX completo */
+    height: 420px;
     bottom: -2px;
     top: auto;
 }
@@ -175,20 +176,22 @@
 }
 
 .giftsCardContainer .secondTop {
-    height: 1100px;
+    height: auto;
+    min-height: 700px;
     background: #f0f0f0;
     border: 1px solid #e8d4b8;
 }
 
 .giftsCardContainer .secondBehind {
-    height: 1100px;
+    height: auto;
+    min-height: 700px;
     background: #fff;
     transform: rotateX(-180deg);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 32px 26px 80px; /* Aumentado padding inferior */
+    padding: 32px 26px 20px;
     box-shadow: 0px 11px 25px -1px rgba(0, 0, 0, 0.1);
     border: 1px solid #e8d4b8;
 }
@@ -224,16 +227,16 @@
 }
 
 .giftsCardContainer .thirdTop {
-    height: 520px;
+    height: 420px;
     background: #e8e8e8;
     border: 1px solid #e8d4b8;
 }
 
 .giftsCardContainer .thirdBehind {
-    height: 520px;
+    height: 420px;
     background: #fff;
     transform: rotateX(-180deg);
-    padding: 50px 30px 80px; /* Aumentado padding */
+    padding: 30px 30px 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -248,19 +251,19 @@
     font-size: 1.55rem;
     color: #4a2b1d;
     letter-spacing: 0.25em;
-    margin: 0 0 28px 0 !important;
+    margin: 0 0 20px 0 !important;
     text-align: center;
 }
 
 .qrcode-container {
-    margin: 20px auto 30px;
+    margin: 10px auto 20px;
     text-align: center;
     display: block;
 }
 
 .qrcode-img {
-    width: 170px;
-    height: 170px;
+    width: 150px;
+    height: 150px;
     border: 4px solid #A15C2C;
     border-radius: 16px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
@@ -268,19 +271,19 @@
 
 .pix-copy-area {
     background: rgba(161, 92, 44, 0.12);
-    padding: 18px 24px;
+    padding: 16px 20px;
     border-radius: 12px;
     border: 2px solid #e8d4b8;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    max-width: 300px;
+    max-width: 280px;
     margin: 0 auto;
     cursor: pointer;
     user-select: none;
     transition: all 0.3s ease;
-    font-size: 1.02rem;
+    font-size: 1rem;
     color: #4a2b1d;
     pointer-events: auto !important;
     z-index: 10;
@@ -300,7 +303,7 @@
 #copyFeedback {
     position: relative;
     display: block;
-    margin-top: 15px;
+    margin-top: 12px;
     background: #4a2b1d;
     color: white;
     padding: 8px 18px;
@@ -321,7 +324,7 @@
 .giftsCardContainer.active .third,
 .giftsCardContainer.active .thirdBehind {
     height: auto !important;
-    min-height: 520px;
+    min-height: 420px;
 }
 
 .giftsCardContainer.active .first {
@@ -355,8 +358,8 @@
 }
 
 .copy-icon-img {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     object-fit: contain;
     opacity: 0.85;
     transition: all 0.3s ease;
@@ -368,12 +371,12 @@
     transform: scale(1.12);
 }
 
-/* ===== BOTÃO VER LISTA COMPLETA - CORRIGIDO ===== */
+/* ===== BOTÃO VER LISTA COMPLETA ===== */
 .ver-lista-btn {
     display: block;
     width: 100%;
     max-width: 320px;
-    margin: 30px auto 40px; /* Margem adequada */
+    margin: 20px auto 10px;
     padding: 16px 20px;
     background: linear-gradient(135deg, #A15C2C, #8B4513);
     border: none;
@@ -388,7 +391,7 @@
     user-select: none;
     pointer-events: auto !important;
     z-index: 5;
-    position: relative; /* Garante posicionamento correto */
+    position: relative;
     box-shadow: 0 6px 20px rgba(161, 92, 44, 0.3);
 }
 
@@ -622,7 +625,7 @@
 
     .giftsCardContainer.active {
         height: auto;
-        min-height: 2000px; /* Aumentado para mobile */
+        min-height: 1300px;
     }
 
     .giftsCardContainer .firstDisplay {
@@ -649,14 +652,12 @@
         height: 200px;
     }
 
-    .giftsCardContainer .second {
-        height: 1150px;
-    }
-
+    .giftsCardContainer .second,
     .giftsCardContainer .secondTop,
     .giftsCardContainer .secondBehind {
-        height: 1150px !important;
-        padding: 30px 22px 80px;
+        height: auto !important;
+        min-height: 650px !important;
+        padding: 30px 22px 20px;
     }
 
     .giftsCardContainer .gifts-list {
@@ -672,40 +673,45 @@
     .giftsCardContainer .thirdTop,
     .giftsCardContainer .thirdBehind {
         height: auto !important;
-        min-height: 480px !important;
+        min-height: 380px !important;
     }
 
     .giftsCardContainer .thirdBehind {
-        padding: 40px 24px 70px !important;
+        padding: 25px 20px 35px !important;
     }
 
     .giftsCardContainer .pix-title {
         font-size: 1.4rem !important;
-        margin-bottom: 20px !important;
+        margin-bottom: 15px !important;
     }
 
     .qrcode-img {
-        width: 150px !important;
-        height: 150px !important;
+        width: 130px !important;
+        height: 130px !important;
         border-width: 3px !important;
     }
 
+    .qrcode-container {
+        margin: 8px auto 15px;
+    }
+
     .pix-copy-area {
-        padding: 14px 18px;
+        padding: 14px 16px;
         gap: 10px;
-        max-width: 270px;
-        font-size: 0.98rem;
+        max-width: 260px;
+        font-size: 0.95rem;
     }
 
     .copy-icon-img {
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
     }
 
     .ver-lista-btn {
         max-width: 280px;
         padding: 14px 18px;
         font-size: 0.95rem;
+        margin: 15px auto 8px;
     }
 
     .presentes-modal-content {
@@ -729,25 +735,26 @@
 @media (max-width: 360px) {
     .giftsCardContainer.active {
         height: auto;
-        min-height: 2100px;
+        min-height: 1250px;
     }
 
     .giftsCardContainer .second,
     .giftsCardContainer .secondTop,
     .giftsCardContainer .secondBehind {
-        height: 1200px !important;
+        height: auto !important;
+        min-height: 620px !important;
     }
 
     .giftsCardContainer .third,
     .giftsCardContainer .thirdTop,
     .giftsCardContainer .thirdBehind {
         height: auto !important;
-        min-height: 460px !important;
+        min-height: 360px !important;
     }
 
     .qrcode-img {
-        width: 140px !important;
-        height: 140px !important;
+        width: 120px !important;
+        height: 120px !important;
     }
 
     .ver-lista-btn {
