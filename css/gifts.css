@@ -85,15 +85,8 @@
 }
 
 @keyframes pulse {
-
-    0%,
-    100% {
-        opacity: 0.7;
-    }
-
-    50% {
-        opacity: 1;
-    }
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
 }
 
 .giftsCardContainer .first,
@@ -189,7 +182,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 32px 26px 50px;
+    padding: 32px 26px 100px; /* Aumentado padding inferior para evitar sobreposição */
     box-shadow: 0px 11px 25px -1px rgba(0, 0, 0, 0.1);
     border: 1px solid #e8d4b8;
 }
@@ -200,7 +193,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 14px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .giftsCardContainer .gift-item {
@@ -215,13 +208,6 @@
     cursor: pointer;
     transition: all 0.3s ease;
     user-select: none;
-}
-
-.giftsCardContainer .gift-item::before {
-    content: "♡";
-    margin-right: 10px;
-    color: #A15C2C;
-    font-size: 1.1rem;
 }
 
 .giftsCardContainer .thirdTop {
@@ -416,7 +402,7 @@
     .giftsCardContainer .secondTop,
     .giftsCardContainer .secondBehind {
         height: 950px !important;
-        padding: 30px 22px 60px;
+        padding: 30px 22px 120px; /* Aumentado padding inferior no mobile */
     }
 
     .giftsCardContainer .gifts-list {
@@ -485,56 +471,20 @@
     }
 }
 
-/* ===== SUAS ADIÇÕES ORIGINAIS + CORREÇÕES FINAIS ===== */
-
-/* Presentes clicáveis */
-.giftsCardContainer .gift-item {
-    cursor: pointer;
-    transition: all 0.3s ease;
-    user-select: none;
-}
-
-.giftsCardContainer .gift-item:hover {
-    background: rgba(161, 92, 44, 0.15);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.giftsCardContainer .gift-item.selected {
-    background: #A15C2C !important;
-    color: white !important;
-    border-left-color: #fff !important;
-    opacity: 0.9;
-    pointer-events: none;
-}
-
-.giftsCardContainer .gift-item.selected::before {
-    content: "Checkmark";
-    color: white;
-    font-weight: bold;
-}
-
-.giftsCardContainer .gift-item[data-ilimitado="true"]::before {
-    content: "✦";
-    color: #8B7355;
-}
-
-.giftsCardContainer .gift-item[data-ilimitado="true"].selected::before {
-    content: "Checkmark";
-    color: white;
-}
-
-/* BOTÃO VER LISTA COMPLETA — FORÇADO A FICAR ABAIXO */
+/* BOTÃO VER LISTA COMPLETA — POSICIONAMENTO FIXO NO FINAL DA SEGUNDA DOBRA */
 .ver-lista-btn {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     display: block;
-    width: 100%;
+    width: calc(100% - 52px);
     max-width: 320px;
-    margin: 45px auto 30px;
     padding: 16px 20px;
-    background: transparent;
-    border: 2px dashed #A15C2C;
-    color: #A15C2C;
-    border-radius: 12px;
+    background: #A15C2C;
+    color: white !important;
+    border: none;
+    border-radius: 50px;
     font-family: 'GriffoClassicoSmallCaps', serif;
     font-size: 1rem;
     letter-spacing: 1px;
@@ -544,17 +494,16 @@
     user-select: none;
     pointer-events: auto !important;
     z-index: 10;
+    box-shadow: 0 8px 20px rgba(161, 92, 44, 0.3);
 }
 
 .ver-lista-btn:hover {
-    background: #A15C2C;
-    color: white;
-    border-style: solid;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(161, 92, 44, 0.3);
+    background: #8B4513;
+    transform: translateX(-50%) translateY(-3px);
+    box-shadow: 0 10px 25px rgba(161, 92, 44, 0.4);
 }
 
-/* MODAL — exatamente como você fez */
+/* MODAL */
 .presentes-modal {
     position: fixed;
     top: 0;
