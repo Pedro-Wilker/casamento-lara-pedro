@@ -14,7 +14,7 @@
     justify-content: center;
     align-items: flex-start;
     position: relative;
-    overflow: hidden;
+    overflow: visible; /* Alterado de hidden para visible */
 }
 
 .giftsCardContainer {
@@ -30,9 +30,10 @@
 }
 
 .giftsCardContainer.active {
-    height: 1650px;
+    height: auto; /* Alterado para auto para comportar todo o conteúdo */
+    min-height: 1650px;
     box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
-    margin-bottom: 0;
+    margin-bottom: 50px; /* Adicionado margem inferior para respiro */
     transition: height 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -382,7 +383,8 @@
     }
 
     .giftsCardContainer.active {
-        height: 1750px;
+        height: auto;
+        min-height: 1750px;
     }
 
     .giftsCardContainer .firstDisplay {
@@ -431,7 +433,8 @@
     .giftsCardContainer .third,
     .giftsCardContainer .thirdTop,
     .giftsCardContainer .thirdBehind {
-        height: 360px !important;
+        height: auto !important;
+        min-height: 360px !important;
     }
 
     .giftsCardContainer .thirdBehind {
@@ -464,7 +467,8 @@
 
 @media (max-width: 360px) {
     .giftsCardContainer.active {
-        height: 1850px;
+        height: auto;
+        min-height: 1850px;
     }
 
     .giftsCardContainer .second,
@@ -476,7 +480,8 @@
     .giftsCardContainer .third,
     .giftsCardContainer .thirdTop,
     .giftsCardContainer .thirdBehind {
-        height: 340px !important;
+        height: auto !important;
+        min-height: 340px !important;
     }
 
     .qrcode-img {
