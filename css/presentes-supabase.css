@@ -2,69 +2,31 @@
 /* gifts.css — ESTILOS ATUALIZADOS E 100% COMPATÍVEIS COM O FOLDING */
 /* ============================================================= */
 
-/* Presentes clicáveis (dentro do folding) */
-.gifts-list {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-    margin: 0 auto 30px;
-    padding: 0 10px;
-}
-
-/* Fonte: Griffo Classico Small Caps aplicada em toda a lista de presentes */
-.gifts-list,
+/* Forçar a fonte em toda a seção de presentes */
+.gifts-folding-container,
+.giftsCardContainer,
 .gift-item,
 .gift-empty,
-.ver-lista-btn {
-    font-family: 'GriffoClassicoSmallCaps', serif;
+.ver-lista-btn,
+.presentes-modal,
+.confirm-modal {
+    font-family: 'GriffoClassicoSmallCaps', serif !important;
+    text-transform: none; /* A fonte já é Small Caps por natureza */
 }
 
-.gift-item {
-    background: rgba(255, 255, 255, 0.92);
-    padding: 16px 20px;
-    padding-right: 90px; /* espaço para o botão visual à direita */
-    border-radius: 12px;
-    border-left: 4px solid #A15C2C;
-    font-size: 1.05rem;
-    color: #4a2b1d;
-    line-height: 1.5;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+/* Lista dentro do card (sem botão reservar) */
+#giftsList .gift-item::after {
+    display: none !important;
 }
 
-.gift-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(161, 92, 44, 0.2);
-    border-left-color: #8B4513;
-}
-
-.gift-item::before {
-    content: "♡";
-    margin-right: 10px;
-    color: #A15C2C;
-    font-size: 1.1em;
-    transition: all 0.3s ease;
-}
-
-/* Presente ilimitado (ícone diferente) */
-.gift-item[data-ilimitado="true"]::before {
-    content: "✦";
-    color: #8B7355;
-}
-
-/* Botão visual "Reservar" no lado direito — não altera o comportamento de clique */
-.gift-item::after {
+/* Lista dentro do MODAL (com botão reservar) */
+#giftsListFull .gift-item::after {
     content: "Reservar";
     position: absolute;
     right: 14px;
     top: 50%;
     transform: translateY(-50%);
-    font-family: 'GriffoClassicoSmallCaps', serif;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #A15C2C;
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(161, 92, 44, 0.6);
@@ -72,102 +34,108 @@
     padding: 6px 12px;
     line-height: 1;
     letter-spacing: 0.06em;
-    pointer-events: none; /* garante que o clique continue no item */
+    pointer-events: none;
     transition: all 0.25s ease;
 }
 
-.gift-item:hover::after {
+#giftsListFull .gift-item:hover::after {
     background: #A15C2C;
     color: #fff;
     border-color: #A15C2C;
 }
 
-/* Presente escolhido (finito) */
+/* Estilização do Item de Presente */
+.gift-item {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 16px 20px;
+    border-radius: 12px;
+    border-left: 4px solid #A15C2C;
+    font-size: 1.1rem;
+    color: #4a2b1d;
+    line-height: 1.5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.05em;
+}
+
+/* Ajuste de padding quando o botão está presente (apenas no modal) */
+#giftsListFull .gift-item {
+    padding-right: 95px;
+}
+
+.gift-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(161, 92, 44, 0.2);
+}
+
+/* Presente escolhido com traço */
 .gift-item.selected {
     background: linear-gradient(135deg, #A15C2C, #8B4513) !important;
     color: white !important;
-    border-left-color: #fff !important;
-    opacity: 0.9;
+    text-decoration: line-through;
+    text-decoration-thickness: 1.5px;
+    opacity: 0.8;
     pointer-events: none;
-    transform: none !important;
-
-    /* traço no texto para indicar indisponibilidade */
-    text-decoration-line: line-through;
-    text-decoration-thickness: 2px;
-    text-decoration-color: rgba(255, 255, 255, 0.85);
-    text-decoration-skip-ink: auto;
 }
 
-.gift-item.selected::before {
-    content: "✓";
-    color: white;
-    font-weight: bold;
-    animation: pulse 1.5s infinite;
-}
-
-/* esconde o botão visual quando já está selecionado */
 .gift-item.selected::after {
-    opacity: 0;
+    display: none !important;
 }
 
-/* Feedback quando todos acabarem */
-.gift-empty {
-    text-align: center;
-    padding: 30px 20px;
-    font-size: 1.3rem;
-    color: #8B7355;
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 12px;
-    border: 2px dashed #A15C2C;
-}
-
-/* Botão "Ver Lista Completa" (opcional) */
+/* BOTÃO DE ACESSO À LISTA - MAIS INTUITIVO */
 .ver-lista-btn {
-    display: block;
-    width: 100%;
-    max-width: 320px;
-    margin: 20px auto;
-    padding: 14px 20px;
-    background: transparent;
-    border: 2px dashed #A15C2C;
-    color: #A15C2C;
-    border-radius: 12px;
-    font-size: 1rem;
-    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 340px;
+    margin: 40px auto 20px;
+    padding: 18px 25px;
+    background: #A15C2C;
+    color: #fff !important;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
     cursor: pointer;
-    transition: all 0.4s ease;
-    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 20px rgba(161, 92, 44, 0.3);
+    text-decoration: none;
 }
 
 .ver-lista-btn:hover {
-    background: #A15C2C;
-    color: white;
-    border-style: solid;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(161, 92, 44, 0.3);
+    background: #8B4513;
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 12px 30px rgba(161, 92, 44, 0.4);
+}
+
+.ver-lista-btn::after {
+    content: ' →';
+    margin-left: 10px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.ver-lista-btn:hover::after {
+    transform: translateX(5px);
 }
 
 /* Responsivo */
 @media (max-width: 480px) {
-    .gifts-list {
-        gap: 12px;
-        padding: 0 5px;
-    }
-
     .gift-item {
-        padding: 14px 16px;
-        padding-right: 84px; /* ajusta espaço para o botão menor */
         font-size: 1rem;
+        padding: 14px 16px;
+    }
+    
+    #giftsListFull .gift-item {
+        padding-right: 85px;
     }
 
-    .gift-item::after {
-        font-size: 0.8rem;
-        padding: 5px 10px;
-        right: 12px;
-    }
-
-    .gift-empty {
-        font-size: 1.15rem;
-        padding: 25px 15px;
+    .ver-lista-btn {
+        font-size: 1rem;
+        padding: 16px 20px;
     }
 }
