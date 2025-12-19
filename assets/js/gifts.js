@@ -62,12 +62,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const escolhidos = todosPresentes.filter(p => p.status === 'ESCOLHIDO');
 
         disponiveis.forEach(item => criarItemPresente(item, giftsListFull));
-        escolhidos.forEach(item => {
-            const div = criarItemPresente(item, giftsListFull);
-            div.classList.add('selected');
-            div.style.opacity = '0.6';
-            div.style.pointerEvents = 'none';
-        });
+        
+        if (escolhidos.length > 0) {
+            const separator = document.createElement('div');
+            separator.className = 'gifts-separator';
+            separator.innerHTML = '<span>Presentes já Reservados</span>';
+            giftsListFull.appendChild(separator);
+
+            escolhidos.forEach(item => {
+                const div = criarItemPresente(item, giftsListFull);
+                div.classList.add('selected');
+                div.style.opacity = '0.6';
+                div.style.pointerEvents = 'none';
+            });
+        }
     }
 
     function criarItemPresente(item, container) {
