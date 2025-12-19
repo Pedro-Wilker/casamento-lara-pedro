@@ -1,0 +1,127 @@
+/* ============================================================= */
+/* gifts.css — ESTILOS ATUALIZADOS E 100% COMPATÍVEIS COM O FOLDING */
+/* ============================================================= */
+
+/* Presentes clicáveis (dentro do folding) */
+.gifts-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 0 auto 30px;
+    padding: 0 10px;
+}
+
+.gift-item {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 16px 20px;
+    border-radius: 12px;
+    border-left: 4px solid #A15C2C;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 1.05rem;
+    color: #4a2b1d;
+    line-height: 1.5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.gift-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(161, 92, 44, 0.2);
+    border-left-color: #8B4513;
+}
+
+.gift-item::before {
+    content: "♡";
+    margin-right: 10px;
+    color: #A15C2C;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+/* Presente ilimitado (ícone diferente) */
+.gift-item[data-ilimitado="true"]::before {
+    content: "✦";
+    color: #8B7355;
+}
+
+/* Presente escolhido (finito) */
+.gift-item.selected {
+    background: linear-gradient(135deg, #A15C2C, #8B4513) !important;
+    color: white !important;
+    border-left-color: #fff !important;
+    opacity: 0.9;
+    pointer-events: none;
+    transform: none !important;
+}
+
+.gift-item.selected::before {
+    content: "✓";
+    color: white;
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+}
+
+/* Feedback quando todos acabarem */
+.gift-empty {
+    text-align: center;
+    padding: 30px 20px;
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 1.3rem;
+    color: #8B7355;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    border: 2px dashed #A15C2C;
+}
+
+/* Botão "Ver Lista Completa" (opcional) */
+.ver-lista-btn {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 20px auto;
+    padding: 14px 20px;
+    background: transparent;
+    border: 2px dashed #A15C2C;
+    color: #A15C2C;
+    border-radius: 12px;
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-align: center;
+}
+
+.ver-lista-btn:hover {
+    background: #A15C2C;
+    color: white;
+    border-style: solid;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(161, 92, 44, 0.3);
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+    .gifts-list {
+        gap: 12px;
+        padding: 0 5px;
+    }
+
+    .gift-item {
+        padding: 14px 16px;
+        font-size: 1rem;
+    }
+
+    .gift-item::before {
+        font-size: 1em;
+    }
+
+    .gift-empty {
+        font-size: 1.15rem;
+        padding: 25px 15px;
+    }
+}
