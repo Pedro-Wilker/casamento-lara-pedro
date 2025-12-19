@@ -182,7 +182,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 32px 26px 100px; /* Aumentado padding inferior para evitar sobreposição */
+    padding: 32px 26px 120px; /* Padding inferior aumentado para dar espaço ao botão fixo */
     box-shadow: 0px 11px 25px -1px rgba(0, 0, 0, 0.1);
     border: 1px solid #e8d4b8;
 }
@@ -402,7 +402,7 @@
     .giftsCardContainer .secondTop,
     .giftsCardContainer .secondBehind {
         height: 950px !important;
-        padding: 30px 22px 120px; /* Aumentado padding inferior no mobile */
+        padding: 30px 22px 140px; /* Padding inferior aumentado no mobile para evitar sobreposição */
     }
 
     .giftsCardContainer .gifts-list {
@@ -457,6 +457,7 @@
     .giftsCardContainer .secondTop,
     .giftsCardContainer .secondBehind {
         height: 1000px !important;
+        padding-bottom: 150px;
     }
 
     .giftsCardContainer .third,
