@@ -76,7 +76,7 @@
 }
 
 .deadline-monogram {
-    width: 50px;
+    width: 50px; /* Tamanho fixo pequeno para desktop/tablet */
     height: auto;
     margin-top: 20px;
     opacity: 0.6;
@@ -85,6 +85,7 @@
 .deadline-monogram img {
     width: 100%;
     height: auto;
+    display: block; /* Garante que a imagem respeite o container */
 }
 
 @media (max-width: 480px) { 
@@ -99,5 +100,9 @@
     
     .deadline-text {
         font-size: 1rem;
+    }
+
+    .deadline-monogram {
+        width: 45px; /* Ligeiramente menor em mobile */
     }
 }
