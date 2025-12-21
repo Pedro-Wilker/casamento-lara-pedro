@@ -51,13 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function exibirListaCurta() {
         const disponiveis = todosPresentes.filter(p => p.status === 'DISPONIVEL').slice(0, 10);
-        giftsList.innerHTML = avisoVoltagemHTML;
+        giftsList.innerHTML = ''; // Removido o avisoVoltagemHTML daqui
         disponiveis.forEach(item => criarItemPresente(item, giftsList));
         verListaCompleta.style.display = disponiveis.length >= 10 ? 'block' : 'none';
     }
 
     function exibirListaCompleta() {
-        giftsListFull.innerHTML = avisoVoltagemHTML;
+        giftsListFull.innerHTML = avisoVoltagemHTML; // Mantido apenas aqui
         const disponiveis = todosPresentes.filter(p => p.status === 'DISPONIVEL');
         const escolhidos = todosPresentes.filter(p => p.status === 'ESCOLHIDO');
 
