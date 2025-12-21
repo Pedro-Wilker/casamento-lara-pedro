@@ -51,13 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function exibirListaCurta() {
         const disponiveis = todosPresentes.filter(p => p.status === 'DISPONIVEL').slice(0, 10);
-        giftsList.innerHTML = ''; // Removido o avisoVoltagemHTML daqui
+        // Lista curta SEM aviso de voltagem
+        giftsList.innerHTML = '';
         disponiveis.forEach(item => criarItemPresente(item, giftsList));
         verListaCompleta.style.display = disponiveis.length >= 10 ? 'block' : 'none';
     }
 
     function exibirListaCompleta() {
-        giftsListFull.innerHTML = avisoVoltagemHTML; // Mantido apenas aqui
+        // Lista completa COM aviso de voltagem
+        giftsListFull.innerHTML = avisoVoltagemHTML;
         const disponiveis = todosPresentes.filter(p => p.status === 'DISPONIVEL');
         const escolhidos = todosPresentes.filter(p => p.status === 'ESCOLHIDO');
 
