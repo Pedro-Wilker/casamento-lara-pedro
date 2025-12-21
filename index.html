@@ -146,7 +146,7 @@
             </div>
 
             <div class="div-direita-contagem">
-                <img src="./assets/images/div-direita-contagem.png" alt="Divisória Inferior Direita">
+                <img src="./assets/images/div-direita-contagem.png" alt="Divisória Direita Contagem">
             </div>
         </section>
 
@@ -296,17 +296,27 @@
                     <img src="./assets/images/presenca.png" alt="Confirme sua Presença" class="title-image">
                 </h2>
 
-                <div class="deadline-card">
-                    <h3 class="deadline-title">Prazo de Confirmação Encerrado</h3>
-                    <p class="deadline-text">
-                        Infelizmente, o prazo para confirmação de presença foi expirado e não é mais possível gerar seu ingresso.
-                    </p>
-                    <p class="deadline-text">
-                        Agradecemos imensamente seu carinho e compreensão. Para qualquer dúvida, entre em contato conosco diretamente.
-                    </p>
-                    <div class="deadline-monogram">
-                        <img src="./assets/images/Monograma.png" alt="Monograma L&P">
+                <form id="confirmationForm" class="confirmation-form">
+                    <p class="main-guest-label">Convidado Principal</p>
+
+                    <input type="text" name="main_name" placeholder="Seu nome completo" required>
+                    <input type="email" name="main_email" placeholder="Seu e-mail" required>
+                    <input type="tel" name="main_phone" placeholder="Seu telefone (opcional)">
+
+                    <div class="acompanhantes-container">
+                        <button type="button" id="addAcompanhante" class="btn-add">+ Adicionar acompanhante</button>
                     </div>
+
+                    <div id="acompanhantesList"></div>
+
+                    <button type="submit" class="btn-confirm">
+                        Confirmar Presença
+                    </button>
+                </form>
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <p>Presença confirmada com sucesso!</p>
+                    <p>Em breve você receberá um carinho nosso no e-mail</p>
                 </div>
             </div>
         </section>
