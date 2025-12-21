@@ -31,9 +31,9 @@
 
 .giftsCardContainer.active {
     height: auto;
-    min-height: 1850px; /* Aumentado para garantir espaço total */
+    min-height: 1500px;
     box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
-    margin-bottom: 120px;
+    margin-bottom: 80px;
     transition: height 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -52,6 +52,13 @@
     text-align: center;
 }
 
+.giftsCardContainer .firstDisplay-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
 .giftsCardContainer .gift-message {
     font-family: 'GriffoClassicoSmallCaps', serif;
     font-size: 1.05rem;
@@ -59,6 +66,14 @@
     letter-spacing: 0.18em;
     color: #4a2b1d;
     text-align: center;
+}
+
+.giftsCardContainer .gift-message p {
+    margin: 0;
+}
+
+.giftsCardContainer .gift-message p+p {
+    color: #8b7355;
 }
 
 .giftsCardContainer .tap-hint {
@@ -71,8 +86,13 @@
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 .giftsCardContainer .first,
@@ -95,13 +115,13 @@
 
 .giftsCardContainer .second {
     height: auto;
-    min-height: 950px; /* Aumentado para não engolir a lista */
+    min-height: 750px;
     bottom: -2px;
     top: auto;
 }
 
 .giftsCardContainer .third {
-    height: 580px; /* Aumentado para dar respiro ao PIX */
+    height: 480px;
     bottom: -2px;
     top: auto;
 }
@@ -138,6 +158,14 @@
     border: 1px solid #e8d4b8;
 }
 
+.giftsCardContainer .firstBehindDisplay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
 .giftsCardContainer .gifts-title {
     font-family: 'GriffoClassicoSmallCaps', serif;
     font-size: 1.6rem;
@@ -149,21 +177,21 @@
 
 .giftsCardContainer .secondTop {
     height: auto;
-    min-height: 950px;
+    min-height: 750px;
     background: #f0f0f0;
     border: 1px solid #e8d4b8;
 }
 
 .giftsCardContainer .secondBehind {
     height: auto;
-    min-height: 950px;
+    min-height: 750px;
     background: #fff;
     transform: rotateX(-180deg);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 40px 26px 20px;
+    padding: 32px 26px 20px;
     box-shadow: 0px 11px 25px -1px rgba(0, 0, 0, 0.1);
     border: 1px solid #e8d4b8;
 }
@@ -188,25 +216,34 @@
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
     cursor: pointer;
     transition: all 0.3s ease;
+    user-select: none;
+}
+
+.giftsCardContainer .gift-item::before {
+    content: "♡";
+    margin-right: 10px;
+    color: #A15C2C;
+    font-size: 1.1rem;
 }
 
 .giftsCardContainer .thirdTop {
-    height: 580px;
+    height: 480px;
     background: #e8e8e8;
     border: 1px solid #e8d4b8;
 }
 
 .giftsCardContainer .thirdBehind {
-    height: 580px;
+    height: 480px;
     background: #fff;
     transform: rotateX(-180deg);
-    padding: 50px 30px 80px;
+    padding: 40px 30px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     box-shadow: 0px 11px 25px -1px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 12px 12px;
+    text-align: center;
 }
 
 .giftsCardContainer .pix-title {
@@ -214,15 +251,22 @@
     font-size: 1.55rem;
     color: #4a2b1d;
     letter-spacing: 0.25em;
-    margin: 0 0 30px 0 !important;
+    margin: 0 0 25px 0 !important;
+    text-align: center;
+}
+
+.qrcode-container {
+    margin: 15px auto 25px;
+    text-align: center;
+    display: block;
 }
 
 .qrcode-img {
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
     border: 4px solid #A15C2C;
     border-radius: 16px;
-    margin-bottom: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
 }
 
 .pix-copy-area {
@@ -237,15 +281,103 @@
     max-width: 280px;
     margin: 0 auto;
     cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    color: #4a2b1d;
     pointer-events: auto !important;
+    z-index: 10;
 }
 
+.pix-copy-area:hover {
+    background: rgba(161, 92, 44, 0.22);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.pix-email {
+    word-break: break-all;
+    font-weight: 500;
+}
+
+#copyFeedback {
+    position: relative;
+    display: block;
+    margin-top: 15px;
+    background: #4a2b1d;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#copyFeedback.show {
+    opacity: 1;
+}
+
+.giftsCardContainer.active .third,
+.giftsCardContainer.active .thirdBehind {
+    height: auto !important;
+    min-height: 480px;
+}
+
+.giftsCardContainer.active .first {
+    transform: rotate3d(1, 0, 0, -180deg);
+    transition-delay: 0s;
+}
+
+.giftsCardContainer.active .second {
+    transform: rotate3d(1, 0, 0, -180deg);
+    transition-delay: 0.2s;
+}
+
+.giftsCardContainer.active .third {
+    transform: rotate3d(1, 0, 0, -180deg);
+    transition-delay: 0.4s;
+}
+
+.giftsCardContainer .first {
+    transform: rotate3d(1, 0, 0, 0deg);
+    transition-delay: 0.5s;
+}
+
+.giftsCardContainer .second {
+    transform: rotate3d(1, 0, 0, 0deg);
+    transition-delay: 0.3s;
+}
+
+.giftsCardContainer .third {
+    transform: rotate3d(1, 0, 0, 0deg);
+    transition-delay: 0.1s;
+}
+
+.copy-icon-img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.pix-copy-area:hover .copy-icon-img {
+    opacity: 1;
+    transform: scale(1.12);
+}
+
+/* ===== BOTÃO VER LISTA COMPLETA ===== */
 .ver-lista-btn {
     display: block;
     width: 100%;
     max-width: 320px;
-    margin: 30px auto 20px;
-    padding: 18px 20px;
+    margin: 20px auto 10px;
+    padding: 16px 20px;
     background: linear-gradient(135deg, #A15C2C, #8B4513);
     border: none;
     color: #fff;
@@ -254,17 +386,379 @@
     font-size: 1rem;
     letter-spacing: 1px;
     cursor: pointer;
+    transition: all 0.4s ease;
+    text-align: center;
+    user-select: none;
     pointer-events: auto !important;
     z-index: 5;
     position: relative;
+    box-shadow: 0 6px 20px rgba(161, 92, 44, 0.3);
 }
 
-.giftsCardContainer.active .first { transform: rotate3d(1, 0, 0, -180deg); transition-delay: 0s; }
-.giftsCardContainer.active .second { transform: rotate3d(1, 0, 0, -180deg); transition-delay: 0.2s; }
-.giftsCardContainer.active .third { transform: rotate3d(1, 0, 0, -180deg); transition-delay: 0.4s; }
+.ver-lista-btn:hover {
+    background: linear-gradient(135deg, #8B4513, #6B3410);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(161, 92, 44, 0.4);
+}
 
+/* ===== PRESENTES CLICÁVEIS ===== */
+.giftsCardContainer .gift-item:hover {
+    background: rgba(161, 92, 44, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.giftsCardContainer .gift-item.selected {
+    background: #A15C2C !important;
+    color: white !important;
+    border-left-color: #fff !important;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+.giftsCardContainer .gift-item.selected::before {
+    content: "✓";
+    color: white;
+    font-weight: bold;
+}
+
+.giftsCardContainer .gift-item[data-ilimitado="true"]::before {
+    content: "✦";
+    color: #8B7355;
+}
+
+.giftsCardContainer .gift-item[data-ilimitado="true"].selected::before {
+    content: "✓";
+    color: white;
+}
+
+/* ===== MODAL LISTA COMPLETA ===== */
+.presentes-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+.presentes-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.presentes-modal-content {
+    background: #fff;
+    border-radius: 16px;
+    max-width: 560px;
+    width: 100%;
+    max-height: 85vh;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.presentes-modal.show .presentes-modal-content {
+    transform: scale(1);
+}
+
+.presentes-modal-header {
+    background: linear-gradient(135deg, #A15C2C, #8B4513);
+    color: #fff;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.presentes-modal-header h3 {
+    margin: 0;
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+.presentes-modal-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+}
+
+.presentes-modal-close:hover {
+    opacity: 1;
+}
+
+.presentes-modal-body {
+    padding: 30px 24px;
+    max-height: calc(85vh - 80px);
+    overflow-y: auto;
+}
+
+/* ===== MODAL DE CONFIRMAÇÃO ===== */
+.confirm-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.confirm-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.confirm-modal-content {
+    background: #fff;
+    border-radius: 16px;
+    max-width: 420px;
+    width: 90%;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.confirm-modal.show .confirm-modal-content {
+    transform: scale(1);
+}
+
+.confirm-modal h3 {
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 1.5rem;
+    color: #A15C2C;
+    margin: 0 0 15px 0;
+    letter-spacing: 1px;
+}
+
+.confirm-modal p {
+    font-size: 1.05rem;
+    color: #4a2b1d;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.confirm-item-name {
+    font-size: 1.2rem !important;
+    color: #A15C2C !important;
+    margin: 20px 0 !important;
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-yes,
+.btn-no {
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.btn-yes {
+    background: #A15C2C;
+    color: white;
+    border: 2px solid #A15C2C;
+}
+
+.btn-yes:hover {
+    background: #8B4513;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(161, 92, 44, 0.4);
+}
+
+.btn-no {
+    background: transparent;
+    color: #A15C2C;
+    border: 2px solid #A15C2C;
+}
+
+.btn-no:hover {
+    background: rgba(161, 92, 44, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVO ===== */
 @media (max-width: 480px) {
-    .giftsCardContainer.active { min-height: 1750px; }
-    .giftsCardContainer .second, .giftsCardContainer .secondTop, .giftsCardContainer .secondBehind { min-height: 900px !important; }
-    .giftsCardContainer .third, .giftsCardContainer .thirdTop, .giftsCardContainer .thirdBehind { min-height: 550px !important; }
+    .gifts-folding-container {
+        padding: 30px 15px 0;
+    }
+
+    .giftsCardContainer {
+        max-width: 340px;
+        height: 230px;
+    }
+
+    .giftsCardContainer.active {
+        height: auto;
+        min-height: 1400px;
+    }
+
+    .giftsCardContainer .firstDisplay {
+        height: 230px;
+        padding: 32px 26px;
+    }
+
+    .giftsCardContainer .gift-message {
+        font-size: 0.95rem;
+        letter-spacing: 0.14em;
+    }
+
+    .giftsCardContainer .tap-hint {
+        font-size: 0.8rem;
+        letter-spacing: 0.18em;
+    }
+
+    .giftsCardContainer .first {
+        height: 200px;
+    }
+
+    .giftsCardContainer .firstTop,
+    .giftsCardContainer .firstBehind {
+        height: 200px;
+    }
+
+    .giftsCardContainer .second,
+    .giftsCardContainer .secondTop,
+    .giftsCardContainer .secondBehind {
+        height: auto !important;
+        min-height: 700px !important;
+        padding: 30px 22px 20px;
+    }
+
+    .giftsCardContainer .gifts-list {
+        gap: 12px;
+    }
+
+    .giftsCardContainer .gift-item {
+        font-size: 1rem;
+        padding: 14px 18px;
+    }
+
+    .giftsCardContainer .third,
+    .giftsCardContainer .thirdTop,
+    .giftsCardContainer .thirdBehind {
+        height: auto !important;
+        min-height: 440px !important;
+    }
+
+    .giftsCardContainer .thirdBehind {
+        padding: 35px 20px 50px !important;
+    }
+
+    .giftsCardContainer .pix-title {
+        font-size: 1.4rem !important;
+        margin-bottom: 20px !important;
+    }
+
+    .qrcode-img {
+        width: 130px !important;
+        height: 130px !important;
+        border-width: 3px !important;
+    }
+
+    .qrcode-container {
+        margin: 12px auto 20px;
+    }
+
+    .pix-copy-area {
+        padding: 14px 16px;
+        gap: 10px;
+        max-width: 260px;
+        font-size: 0.95rem;
+    }
+
+    .copy-icon-img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .ver-lista-btn {
+        max-width: 280px;
+        padding: 14px 18px;
+        font-size: 0.95rem;
+        margin: 15px auto 8px;
+    }
+
+    .presentes-modal-content {
+        max-height: 92vh;
+        margin: 10px;
+    }
+
+    .presentes-modal-header {
+        padding: 16px 20px;
+    }
+
+    .presentes-modal-header h3 {
+        font-size: 1.15rem;
+    }
+
+    .presentes-modal-body {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .giftsCardContainer.active {
+        height: auto;
+        min-height: 1350px;
+    }
+
+    .giftsCardContainer .second,
+    .giftsCardContainer .secondTop,
+    .giftsCardContainer .secondBehind {
+        height: auto !important;
+        min-height: 680px !important;
+    }
+
+    .giftsCardContainer .third,
+    .giftsCardContainer .thirdTop,
+    .giftsCardContainer .thirdBehind {
+        height: auto !important;
+        min-height: 420px !important;
+    }
+
+    .qrcode-img {
+        width: 120px !important;
+        height: 120px !important;
+    }
+
+    .ver-lista-btn {
+        max-width: 260px;
+        font-size: 0.9rem;
+    }
 }
