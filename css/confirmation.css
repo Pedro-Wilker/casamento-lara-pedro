@@ -63,7 +63,8 @@
     margin: 0 0 10px 0;
     line-height: 1.2;
     font-weight: normal;
-    text-transform: uppercase; /* Garante o estilo Small Caps da fonte */
+    /* Removido text-transform para permitir que a fonte use suas variantes de tamanho */
+    font-variant: small-caps; 
 }
 
 .deadline-text {
