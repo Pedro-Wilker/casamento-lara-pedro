@@ -1,5 +1,7 @@
 /* ============================================================= */
 /* warnings.css — PADRÃO LARA & PEDRO — 100% integrado           */
+/* Fundo BG4.webp seguindo padrão do envelope                   */
+/* Paleta: #f5f0eb, #A15C2C, #8b7355, #4A2B1D                     */
 /* ============================================================= */
 
 .warnings-section {
@@ -65,20 +67,18 @@
     align-items: flex-start;
     justify-content: flex-start;
     margin-bottom: 28px;
-    font-family: 'GriffoClassicoSmallCaps', serif !important;
-    font-variant: small-caps;
-    font-size: 1.25rem;
-    line-height: 1.4;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 1.15rem;
+    line-height: 1.6;
     color: #4A2B1D;
     text-align: left;
-    letter-spacing: 0.05em;
 }
 
 .heart-icon {
     color: #A15C2C;
     font-size: 1.4rem;
     margin-right: 12px;
-    margin-top: 2px;
+    margin-top: 4px;
     flex-shrink: 0;
     filter: drop-shadow(0 2px 4px rgba(161, 92, 44, 0.3));
 }
@@ -91,6 +91,8 @@
 .warnings-list strong {
     font-weight: 600;
     color: #8b4513;
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    letter-spacing: 0.5px;
 }
 
 .final-message {
@@ -108,7 +110,6 @@
     font-size: 1.6rem;
     color: #A15C2C;
     font-style: normal;
-    font-variant: small-caps;
 }
 
 .signature {
@@ -159,6 +160,10 @@
     border-radius: 1px;
 }
 
+/* ============================================================= */
+/* DIV INFERIOR AVISOS FIXA NO FINAL                            */
+/* ============================================================= */
+
 .div-inferior-avisos {
     position: absolute;
     bottom: 0;
@@ -177,12 +182,64 @@
     display: block;
 }
 
+/* ============================================================= */
+/* RESPONSIVO                                                    */
+/* ============================================================= */
+
 @media (max-width: 480px) {
     .warnings-section {
         min-height: 150vh;
         padding: 80px 15px 180px;
+        background: url('../assets/images/BG4.webp') center center / cover no-repeat;
     }
+
+    .warnings-section .content-wrapper {
+        padding: 40px 20px;
+        border-radius: 16px;
+    }
+
     .warnings-list li {
-        font-size: 1.15rem;
+        font-size: 1.05rem;
+        margin-bottom: 24px;
+    }
+
+    .heart-icon {
+        font-size: 1.3rem;
+        margin-right: 10px;
+    }
+
+    .final-message {
+        font-size: 1.3rem;
+        margin: 40px 0 35px;
+    }
+
+    .final-message strong {
+        font-size: 1.5rem;
+    }
+
+    .title-image,
+    .signature-img,
+    .avisos-arco img {
+        max-width: 340px;
+    }
+
+    .div-inferior-avisos {
+        max-width: 480px;
+    }
+}
+
+@media (max-width: 360px) {
+    .title-image,
+    .signature-img,
+    .avisos-arco img {
+        max-width: 300px;
+    }
+
+    .warnings-list li {
+        font-size: 1rem;
+    }
+
+    .div-inferior-avisos {
+        max-width: 360px;
     }
 }
