@@ -56,13 +56,13 @@
 }
 
 .deadline-title {
-    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-family: 'GriffoClassicoSmallCaps', serif !important;
     font-size: 1.4rem;
     color: #4a2b1d;
     letter-spacing: 2.6px;
     margin: 0 0 10px 0;
     line-height: 1.2;
-    text-transform: none; /* Mantém o comportamento da fonte SmallCaps */
+    font-weight: normal;
 }
 
 .deadline-text {
