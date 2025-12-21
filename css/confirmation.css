@@ -46,176 +46,100 @@
     margin-bottom: 40px;
 }
 
-.confirmation-form input {
-    width: 100%;
-    padding: 16px 20px;
-    margin: 12px 0;
-    border: 1.5px solid rgba(161,92,44,0.3);
-    border-radius: 14px;
-    font-family: 'EB Garamond', serif;
-    font-size: 1.1rem;
-    background: rgba(255,255,255,0.7);
-    transition: all 0.3s;
-}
-
-.confirmation-form input:focus {
-    outline: none;
-    border-color: #A15C2C;
-    box-shadow: 0 0 0 4px rgba(161,92,44,0.15);
-}
-
-.main-guest-label {
-    font-family: 'GriffoClassicoSmallCaps', serif;
-    font-size: 1.3rem;
-    color: #8B4513;
-    margin: 20px 0 10px;
-    letter-spacing: 1.5px;
-}
-
-.acompanhantes-info {
-    font-size: 0.95rem;
-    color: #8b7355;
-    font-style: italic;
-    margin: 25px 0 15px;
-    line-height: 1.6;
-}
-
-.acompanhante-label {
-    font-family: 'GriffoClassicoSmallCaps', serif;
-    font-size: 1.1rem;
-    color: #8B4513;
-    margin: 15px 0 8px 0;
-    letter-spacing: 1.2px;
-}
-
-.btn-add {
-    background: transparent;
-    border: 2px dashed #A15C2C;
-    color: #A15C2C;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-family: 'EB Garamond', serif;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.4s;
-    margin-top: 10px;
-}
-
-.btn-add:hover {
-    background: #A15C2C;
-    color: white;
-}
-
-.btn-add-mais {
-    background: transparent;
-    border: 1px dashed #A15C2C;
-    color: #A15C2C;
-    padding: 8px 16px;
+/* Card de Prazo Encerrado */
+.deadline-card {
+    background: linear-gradient(135deg, rgba(161, 92, 44, 0.1), rgba(139, 69, 19, 0.05));
+    border: 2px solid rgba(161, 92, 44, 0.3);
     border-radius: 20px;
-    font-family: 'EB Garamond', serif;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.4s;
-    margin-top: 12px;
-    width: 100%;
-}
-
-.btn-add-mais:hover {
-    background: #A15C2C;
-    color: white;
-}
-
-.acompanhante-field {
-    background: rgba(245,240,235,0.6);
-    padding: 20px;
-    border-radius: 16px;
+    padding: 40px 30px;
     margin: 20px 0;
-    position: relative;
-    border: 1px solid rgba(161,92,44,0.2);
+    box-shadow: 0 10px 30px rgba(161, 92, 44, 0.15);
+    backdrop-filter: blur(8px);
 }
 
-.remove-acompanhante {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #A15C2C;
-    color: white;
-    border: none;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 0.9rem;
+.deadline-icon {
+    font-size: 3rem;
+    color: #A15C2C;
+    margin-bottom: 20px;
+    display: block;
+    text-shadow: 0 2px 10px rgba(161, 92, 44, 0.3);
 }
 
-.btn-confirm {
-    background: linear-gradient(135deg, #A15C2C, #8B4513);
-    color: white;
-    border: none;
-    padding: 18px 40px;
-    border-radius: 50px;
+.deadline-title {
     font-family: 'GriffoClassicoSmallCaps', serif;
-    font-size: 1.3rem;
+    font-size: 1.8rem;
+    color: #A15C2C;
     letter-spacing: 2px;
-    cursor: pointer;
-    margin-top: 40px;
-    width: 100%;
-    box-shadow: 0 10px 30px rgba(161,92,44,0.4);
-    transition: all 0.4s;
+    margin: 0 0 25px 0;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
-.btn-confirm:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(161,92,44,0.5);
-}
-
-.success-message {
-    margin-top: 40px;
-    padding: 30px;
-    background: rgba(161,92,44,0.1);
-    border-radius: 20px;
-    border: 2px solid rgba(161,92,44,0.3);
-}
-
-.success-message p {
-    font-family: 'EB Garamond', serif;
-    font-size: 1.3rem;
+.deadline-message {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 1.2rem;
     color: #4A2B1D;
-    margin: 15px 0;
+    line-height: 1.7;
+    margin: 0 0 20px 0;
+}
+
+.deadline-message strong {
+    color: #8B4513;
+    font-weight: 600;
+}
+
+.deadline-contact {
+    font-family: 'GriffoClassicoSmallCaps', serif;
+    font-size: 1rem;
+    color: #8b7355;
+    letter-spacing: 1px;
+    margin-top: 25px;
+    font-style: italic;
+}
+
+.deadline-contact strong {
+    color: #A15C2C;
+    font-style: normal;
+}
+
+/* Decorative elements */
+.decorative-line {
+    height: 2px;
+    width: 120px;
+    background: linear-gradient(to right, transparent, #A15C2C, transparent);
+    margin: 40px auto 0;
+    border-radius: 1px;
 }
 
 @media (max-width: 480px) { 
     .confirmation-section { 
         padding: 10px 15px 20px; 
     }
-    .confirmation-section .content-wrapper { padding: 50px 25px; }
-}
-
-.relacao-select {
-    width: 100%;
-    padding: 14px 18px;
-    margin: 12px 0 16px;
-    border: 1.5px solid rgba(161,92,44,0.4);
-    border-radius: 14px;
-    font-family: 'EB Garamond', serif;
-    font-size: 1.1rem;
-    background: rgba(255,255,255,0.9);
-    color: #4A2B1D;
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23A15C2C'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-    background-size: 12px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.relacao-select:focus {
-    outline: none;
-    border-color: #A15C2C;
-    box-shadow: 0 0 0 4px rgba(161,92,44,0.15);
-}
-
-.relacao-select option {
-    color: #333;
+    .confirmation-section .content-wrapper { 
+        padding: 50px 25px; 
+    }
+    
+    .deadline-card {
+        padding: 35px 25px;
+        margin: 15px 0;
+    }
+    
+    .deadline-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .deadline-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .deadline-message {
+        font-size: 1.1rem;
+    }
+    
+    .deadline-contact {
+        font-size: 0.95rem;
+        margin-top: 20px;
+    }
 }
