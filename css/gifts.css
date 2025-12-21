@@ -31,9 +31,9 @@
 
 .giftsCardContainer.active {
     height: auto;
-    min-height: 1500px;
+    min-height: 1650px; /* Aumentado para acomodar todas as dobras abertas */
     box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
-    margin-bottom: 80px;
+    margin-bottom: 100px;
     transition: height 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -115,13 +115,13 @@
 
 .giftsCardContainer .second {
     height: auto;
-    min-height: 750px;
+    min-height: 850px; /* Aumentado para garantir que a lista não seja engolida */
     bottom: -2px;
     top: auto;
 }
 
 .giftsCardContainer .third {
-    height: 480px;
+    height: 520px; /* Aumentado para dar mais espaço ao PIX */
     bottom: -2px;
     top: auto;
 }
@@ -177,14 +177,14 @@
 
 .giftsCardContainer .secondTop {
     height: auto;
-    min-height: 750px;
+    min-height: 850px;
     background: #f0f0f0;
     border: 1px solid #e8d4b8;
 }
 
 .giftsCardContainer .secondBehind {
     height: auto;
-    min-height: 750px;
+    min-height: 850px;
     background: #fff;
     transform: rotateX(-180deg);
     display: flex;
@@ -227,13 +227,13 @@
 }
 
 .giftsCardContainer .thirdTop {
-    height: 480px;
+    height: 520px;
     background: #e8e8e8;
     border: 1px solid #e8d4b8;
 }
 
 .giftsCardContainer .thirdBehind {
-    height: 480px;
+    height: 520px;
     background: #fff;
     transform: rotateX(-180deg);
     padding: 40px 30px 60px;
@@ -324,7 +324,7 @@
 .giftsCardContainer.active .third,
 .giftsCardContainer.active .thirdBehind {
     height: auto !important;
-    min-height: 480px;
+    min-height: 520px;
 }
 
 .giftsCardContainer.active .first {
@@ -625,7 +625,7 @@
 
     .giftsCardContainer.active {
         height: auto;
-        min-height: 1400px;
+        min-height: 1550px;
     }
 
     .giftsCardContainer .firstDisplay {
@@ -656,7 +656,7 @@
     .giftsCardContainer .secondTop,
     .giftsCardContainer .secondBehind {
         height: auto !important;
-        min-height: 700px !important;
+        min-height: 800px !important;
         padding: 30px 22px 20px;
     }
 
@@ -673,7 +673,7 @@
     .giftsCardContainer .thirdTop,
     .giftsCardContainer .thirdBehind {
         height: auto !important;
-        min-height: 440px !important;
+        min-height: 480px !important;
     }
 
     .giftsCardContainer .thirdBehind {
@@ -735,21 +735,21 @@
 @media (max-width: 360px) {
     .giftsCardContainer.active {
         height: auto;
-        min-height: 1350px;
+        min-height: 1500px;
     }
 
     .giftsCardContainer .second,
     .giftsCardContainer .secondTop,
     .giftsCardContainer .secondBehind {
         height: auto !important;
-        min-height: 680px !important;
+        min-height: 780px !important;
     }
 
     .giftsCardContainer .third,
     .giftsCardContainer .thirdTop,
     .giftsCardContainer .thirdBehind {
         height: auto !important;
-        min-height: 420px !important;
+        min-height: 460px !important;
     }
 
     .qrcode-img {
